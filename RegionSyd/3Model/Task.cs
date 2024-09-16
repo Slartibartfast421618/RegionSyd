@@ -8,10 +8,11 @@ namespace RegionSyd._3Model
 {
     internal class Task
     {
+		// Backing fields
 		private int _taskID;
         private string _taskType;
         private string _taskDescription;
-        private int _patientID;
+        private string _patientName;
         private TimeOnly _appointmentTime;
         private DateOnly _appointmentDate;
         private string _addressFrom;
@@ -19,6 +20,7 @@ namespace RegionSyd._3Model
         private int _disponentDelegator;
         private int _disponentCreator;
 
+		// Properties
         public int TaskID
 		{
 			get { return _taskID; }
@@ -37,10 +39,10 @@ namespace RegionSyd._3Model
 			set { _taskDescription = value; }
 		}
 
-		public int PatientID
+		public string PatientName
 		{
-			get { return _patientID; }
-			set { _patientID = value; }
+			get { return _patientName; }
+			set { _patientName = value; }
 		}
 
 		public TimeOnly AppointmentTime
@@ -79,6 +81,10 @@ namespace RegionSyd._3Model
 			set { _disponentCreator = value; }
 		}
 
+		// Constructors
+		public Task()
+		{
 
+		}
 	}
 }

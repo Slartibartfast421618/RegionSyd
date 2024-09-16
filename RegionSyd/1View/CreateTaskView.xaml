@@ -27,6 +27,7 @@
         <TextBox HorizontalAlignment="Left" Margin="460,180,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <TextBox HorizontalAlignment="Left" Margin="460,220,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <TextBox HorizontalAlignment="Left" Margin="460,260,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Gem" HorizontalAlignment="Left" Margin="350,330,100,0" VerticalAlignment="Top"/>
+        <Button Content="Gem" Command="{Binding SaveCommand}" 
+                HorizontalAlignment="Left" Margin="350,330,100,0" VerticalAlignment="Top"/>
     </Grid>
 </Page>
