@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading.Assignments;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace RegionSyd._1View
 {
     /// <summary>
-    /// Interaction logic for CreateTaskView.xaml
+    /// Interaction logic for CreateAssignmentView.xaml
     /// </summary>
-    public partial class CreateTaskView : Page
+    public partial class CreateAssignmentView : Page
     {
-        public CreateTaskView()
+        public CreateAssignmentView()
         {
             InitializeComponent();
         }

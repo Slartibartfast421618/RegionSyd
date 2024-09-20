@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace RegionSyd._3Model
 {
-    internal class Task
+    public class Assignment
     {
 		// Backing fields
-		private int _taskID;
-        private string _taskType;
-        private string _taskDescription;
+		private int _assignmentID;
+        private string _assignmentType;
+        private string _assignmentDescription;
         private string _patientName;
         private TimeOnly _appointmentTime;
         private DateOnly _appointmentDate;
@@ -22,22 +18,22 @@ namespace RegionSyd._3Model
 		private int _regionID;
 
 		// Properties
-        public int TaskID
+        public int AssignmentID
 		{
-			get { return _taskID; }
-			set { _taskID = value; }
+			get { return _assignmentID; }
+			set { _assignmentID = value; }
 		}
 
-		public string TaskType
+		public string AssignmentType
 		{
-			get { return _taskType; }
-			set { _taskType = value; }
+			get { return _assignmentType; }
+			set { _assignmentType = value; }
 		}
 
-		public string TaskDescription
+		public string AssignmentDescription
 		{
-			get { return _taskDescription; }
-			set { _taskDescription = value; }
+			get { return _assignmentDescription; }
+			set { _assignmentDescription = value; }
 		}
 
 		public string PatientName
@@ -89,7 +85,7 @@ namespace RegionSyd._3Model
 		}
 
 		// Constructors
-		public Task()
+		public Assignment()
 		{
 
 		}

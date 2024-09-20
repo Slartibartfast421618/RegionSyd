@@ -17,20 +17,14 @@ namespace RegionSyd._1View
     /// </summary>
     public partial class MainWindow : Window
     {
-        private CreateTaskViewModel vm; // HUSK!! Skal ændres til MainVieModel!!!
-
         public MainWindow()
         {
             InitializeComponent();
-            vm = new CreateTaskViewModel();
-
-            DataContext = vm;
-            
         }
 
-        private void BtnCreateTask_Click(object sender, RoutedEventArgs e)
+        private void BtnCreateAssignment_Click(object sender, RoutedEventArgs e)
         {
-            Main.Content = new CreateTaskView();
+            Main.Content = new CreateAssignmentView();
         }
     }
 }

@@ -1,22 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
+﻿using System.Collections.ObjectModel;
 using TheMovies.MVVM;
+using RegionSyd._3Model;
 
 namespace RegionSyd._2ViewModel
 {
-    internal class CreateTaskViewModel : ViewModelBase
+    internal class CreateAssignmentViewModel : ViewModelBase
     {
-        public ObservableCollection<Task> tasks { get; set; } = new ObservableCollection<Task>();
-        public Task currentTask;
-
-        public CreateTaskViewModel()
+        public ObservableCollection<Assignment> assignments { get; set; } = new ObservableCollection<Assignment>();
+        
+        public CreateAssignmentViewModel()
         {
-            currentTask = new Task();
+
         }
 
         // Relay commands for binding
@@ -31,8 +25,7 @@ namespace RegionSyd._2ViewModel
         }
         private void Save()
         {
-            tasks.Add(currentTask);
-            currentTask = new Task();
+            assignments.Add();
         }
         private bool CanSave()
         {

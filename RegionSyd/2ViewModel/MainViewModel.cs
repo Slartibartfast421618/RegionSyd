@@ -1,25 +1,16 @@
-﻿using RegionSyd._3Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using RegionSyd._3Model;
 
 namespace RegionSyd._2ViewModel
 {
     internal class MainViewModel
     {
-        //public MainViewModel(TaskRepository taskRepo)
-        //{
-
-        //} 
-
-        private readonly IRepository _taskRepository;
+        private readonly IRepository<Assignment> _assignmentRepository;
         
-        public MainViewModel(IRepository taskRepository)
+        public MainViewModel(IRepository<Assignment> assignmentRepository)
         {
             
-            _taskRepository = taskRepository;
+            _assignmentRepository = assignmentRepository;
 
         }
     }

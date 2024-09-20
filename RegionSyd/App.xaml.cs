@@ -22,7 +22,7 @@ namespace YourAppNamespace
                 .Build();
 
             // Opret dependencies manuelt
-            var repository = new TaskRepository(_configuration);
+            var repository = new AssignmentRepository(_configuration);
             var mainViewModel = new MainViewModel(repository);
 
             // Opret MainWindow med den ViewModel
