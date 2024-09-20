@@ -20,3 +20,5 @@ obj/
 # Generalized files handled on remote
 README.md
 
+# Things you don't want others to know about
+appsettings.json

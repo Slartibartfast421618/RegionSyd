@@ -19,6 +19,7 @@ namespace RegionSyd._3Model
         private string _addressTo;
         private int _disponentDelegator;
         private int _disponentCreator;
+		private int _regionID;
 
 		// Properties
         public int TaskID
@@ -79,6 +80,12 @@ namespace RegionSyd._3Model
 		{
 			get { return _disponentCreator; }
 			set { _disponentCreator = value; }
+		}
+
+		public int RegionID
+		{
+			get { return _regionID; }
+			set { _regionID = value; }
 		}
 
 		// Constructors
