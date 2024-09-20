@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
-using System.Data;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 
 namespace RegionSyd._3Model
 {
@@ -30,8 +29,17 @@ namespace RegionSyd._3Model
                     {
                         assignments.Add(new Assignment
                         {
-                            AssignmentId = (int)reader["AssignmentId"],
-                            Number = (int)reader["Number"]
+                            RegionalAssignmentID = (string)reader["RegionalAssignmentID"],
+                            AssignmentType = (string)reader["AssignmentType"],
+                            AssignmentDescription = (string)reader["AssignmentDescription"],
+                            PatientName = (string)reader["PatientName"],
+                            AppointmentTime = (TimeOnly)reader["AppointmentTime"],
+                            AppointmentDate = (DateOnly)reader["AppointmentDate"],
+                            AddressFrom = (string)reader["AddressFrom"],
+                            AddressTo = (string)reader["AddressTo"],
+                            DisponentDelegator = (int)reader["DisponentDelegator"],
+                            DisponentCreator = (int)reader["DisponentCreator"],
+                            RegionID = (int)reader["RegionID"],
                         });
                     }
                 }
@@ -43,12 +51,12 @@ namespace RegionSyd._3Model
         public Assignment GetById(int id)
         {
             Assignment assignment = null;
-            string query = "SELECT * FROM ASSIGNMENT WHERE AssignmentId = @AssignmentId";
+            string query = "SELECT * FROM ASSIGNMENT WHERE RegionalAssignmentID = @RegionalAssignmentID";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@AssignmentId", id);
+                command.Parameters.AddWithValue("@RegionalAssignmentID", id);
                 connection.Open();
 
                 using (SqlDataReader reader = command.ExecuteReader())
@@ -57,8 +65,17 @@ namespace RegionSyd._3Model
                     {
                         assignment = new Assignment
                         {
-                            AssignmentId = (int)reader["AssignmentId"],
-                            Number = (int)reader["Number"]
+                            RegionalAssignmentID = (string)reader["RegionalAssignmentID"],
+                            AssignmentType = (string)reader["AssignmentType"],
+                            AssignmentDescription = (string)reader["AssignmentDescription"],
+                            PatientName = (string)reader["PatientName"],
+                            AppointmentTime = (TimeOnly)reader["AppointmentTime"],
+                            AppointmentDate = (DateOnly)reader["AppointmentDate"],
+                            AddressFrom = (string)reader["AddressFrom"],
+                            AddressTo = (string)reader["AddressTo"],
+                            DisponentDelegator = (int)reader["DisponentDelegator"],
+                            DisponentCreator = (int)reader["DisponentCreator"],
+                            RegionID = (int)reader["RegionID"],
                         };
                     }
                 }
@@ -69,12 +86,12 @@ namespace RegionSyd._3Model
 
         public void Add(Assignment assignment)
         {
-            string query = "INSERT INTO ASSIGNMENT (Number) VALUES (@Number)";
+            string query = "INSERT INTO ASSIGNMENT VALUES (@AssignmentToString)";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@Number", assignment.Number);
+                command.Parameters.AddWithValue("@AssignmentToString", assignment.ToString());
                 connection.Open();
                 command.ExecuteNonQuery();
             }
@@ -82,26 +99,26 @@ namespace RegionSyd._3Model
 
         public void Update(Assignment assignment)
         {
-            string query = "UPDATE ASSIGNMENT SET Number = @Number WHERE AssignmentId = @AssignmentId";
+            string query = "UPDATE ASSIGNMENT SET @AssignmentToUpdate WHERE RegionalAssignmentID = @RegionalAssignmentID";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@Number", assignment.Number);
-                command.Parameters.AddWithValue("@AssignmentId", assignment.AssignmentId);
+                command.Parameters.AddWithValue("@AssignmentToUpdate", assignment.ToUpdate());
+                command.Parameters.AddWithValue("@RegionalAssignmentID", assignment.RegionalAssignmentID);
                 connection.Open();
                 command.ExecuteNonQuery();
             }
         }
 
-        public void Delete(int id)
+        public void Delete(Assignment assignment)
         {
-            string query = "DELETE FROM ASSIGNMENT WHERE AssignmentId = @AssignmentId";
+            string query = "DELETE FROM ASSIGNMENT WHERE RegionalAssignmentID = @RegionalAssignmentID";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@AssignmentId", id);
+                command.Parameters.AddWithValue("@RegionalAssignmentID", assignment.RegionalAssignmentID);
                 connection.Open();
                 command.ExecuteNonQuery();
             }

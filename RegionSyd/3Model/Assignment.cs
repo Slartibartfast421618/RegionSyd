@@ -1,11 +1,13 @@
 ﻿
 
+using System.Runtime.CompilerServices;
+
 namespace RegionSyd._3Model
 {
     public class Assignment
     {
 		// Backing fields
-		private int _assignmentID;
+		private string _regionalAssignmentID;
         private string _assignmentType;
         private string _assignmentDescription;
         private string _patientName;
@@ -18,10 +20,10 @@ namespace RegionSyd._3Model
 		private int _regionID;
 
 		// Properties
-        public int AssignmentID
+        public string RegionalAssignmentID
 		{
-			get { return _assignmentID; }
-			set { _assignmentID = value; }
+			get { return _regionalAssignmentID; }
+			set { _regionalAssignmentID = value; }
 		}
 
 		public string AssignmentType
@@ -84,10 +86,42 @@ namespace RegionSyd._3Model
 			set { _regionID = value; }
 		}
 
-		// Constructors
-		public Assignment()
-		{
+        // Constructors
+        public Assignment()
+        {
 
-		}
-	}
+        }
+        public Assignment(string rAssID, string assType, string assDes, 
+						string pName, TimeOnly appTime, DateOnly appDate, 
+						string addFrom, string addTo, int disDel, int disCre, int rID)
+        {
+			_regionalAssignmentID = rAssID;
+			_assignmentType = assType;
+			_assignmentDescription = assDes;
+			_patientName = pName;
+			_appointmentTime = appTime;
+			_appointmentDate = appDate;
+			_addressFrom = addFrom;
+			_addressTo = addTo;
+			_disponentDelegator = disDel;
+			_disponentCreator= disCre;
+			_regionID = rID;
+        }
+
+        public override string ToString()
+        {
+            return $"'{RegionalAssignmentID}', '{AssignmentType}', '{AssignmentDescription}', " +
+                $"'{PatientName}', '{AppointmentTime}', '{AppointmentDate}', " +
+                $"'{AddressFrom}', '{AddressTo}', '{DisponentDelegator}', " +
+                $"'{DisponentCreator}', '{RegionID}'";
+        }
+        public string ToUpdate()
+        {
+            return $"AssignmentType = '{AssignmentType}', AssignmentDescription = '{AssignmentDescription}', " +
+                $"PatientName = '{PatientName}', AppointmentTime = '{AppointmentTime}', " +
+				$"AppointmentDate = '{AppointmentDate}', AddressFrom = '{AddressFrom}', " +
+				$"AddressTo = '{AddressTo}', DisponentDelegator = '{DisponentDelegator}', " +
+                $"DisponentCreator = '{DisponentCreator}', RegionID = '{RegionID}'";
+        }
+    }
 }
