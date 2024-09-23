@@ -6,6 +6,7 @@ namespace RegionSyd._2ViewModel
     {
         private Action<object> _execute;
         private Func<object, bool> _canExecute;
+        private Action searchAssignments;
 
         event EventHandler? ICommand.CanExecuteChanged
         {
@@ -24,6 +25,11 @@ namespace RegionSyd._2ViewModel
         {
             _execute = execute;
             _canExecute = canExecute;
+        }
+
+        public RelayCommand(Action searchAssignments)
+        {
+            this.searchAssignments = searchAssignments;
         }
 
         bool ICommand.CanExecute(object? parameter)

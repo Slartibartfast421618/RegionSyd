@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RegionSyd._2ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,7 @@ namespace RegionSyd._1View
         public SearchAssignmentView()
         {
             InitializeComponent();
+            DataContext = new SearchAssignmentViewModel();
         }
 
     }

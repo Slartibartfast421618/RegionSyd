@@ -17,12 +17,12 @@
         <ListView ItemsSource="{Binding Assignments}" Margin="20,99,25,18">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="OpgaveID" Binding ="{Binding Assignment.RegionalAssignmentID}"/>
-                    <GridViewColumn Header="Fra" Binding ="{Binding Assignment.AddressFrom}"/>
-                    <GridViewColumn Header="Til" Binding ="{Binding Assignment.AddressTo}"/>
-                    <GridViewColumn Header="Tid" Binding ="{Binding Assignment.AppointmentTime}"/>
-                    <GridViewColumn Header="Opgavetype" Binding ="{Binding Assignment.AssignmentType}"/>
-                    <GridViewColumn Header="Opgave beskrivelse" Binding ="{Binding Assignment.AssignmentDescription}"/>
+                    <GridViewColumn Header="OpgaveID" DisplayMemberBinding="{Binding RegionalAssignmentID}"/>
+                    <GridViewColumn Header="Fra" DisplayMemberBinding="{Binding AddressFrom}"/>
+                    <GridViewColumn Header="Til" DisplayMemberBinding="{Binding AddressTo}"/>
+                    <GridViewColumn Header="Tid" DisplayMemberBinding="{Binding AppointmentTime}"/>
+                    <GridViewColumn Header="Opgavetype" DisplayMemberBinding="{Binding AssignmentType}"/>
+                    <GridViewColumn Header="Opgave beskrivelse" DisplayMemberBinding="{Binding AssignmentDescription}"/>
                 </GridView>
             </ListView.View>
         </ListView>
