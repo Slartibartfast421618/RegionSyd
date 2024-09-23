@@ -25,7 +25,8 @@ namespace RegionSyd._2ViewModel
         }
         private void Save()
         {
-            assignments.Add();
+            // assignments.Add();
+           // kommenteret ud for at køre programmet
         }
         private bool CanSave()
         {

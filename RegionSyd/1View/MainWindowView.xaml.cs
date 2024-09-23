@@ -15,9 +15,9 @@ namespace RegionSyd._1View
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindowView : Window
     {
-        public MainWindow()
+        public MainWindowView()
         {
             InitializeComponent();
         }
@@ -25,6 +25,11 @@ namespace RegionSyd._1View
         private void BtnCreateAssignment_Click(object sender, RoutedEventArgs e)
         {
             Main.Content = new CreateAssignmentView();
+        }
+
+        private void BtnSearchAssignment_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new SearchAssignmentView();
         }
     }
 }

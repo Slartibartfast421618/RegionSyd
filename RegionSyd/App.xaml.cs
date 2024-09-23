@@ -26,7 +26,7 @@ namespace YourAppNamespace
             var mainViewModel = new MainViewModel(repository);
 
             // Opret MainWindow med den ViewModel
-            var mainWindow = new MainWindow
+            var mainWindow = new MainWindowView
             {
                 DataContext = mainViewModel
             };

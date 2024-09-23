@@ -15,13 +15,14 @@ using System.Windows.Shapes;
 namespace RegionSyd._1View
 {
     /// <summary>
-    /// Interaction logic for CreateAssignmentView.xaml
+    /// Interaction logic for SearchAssignmentView.xaml
     /// </summary>
-    public partial class CreateAssignmentView : Page
+    public partial class SearchAssignmentView : Page
     {
-        public CreateAssignmentView()
+        public SearchAssignmentView()
         {
             InitializeComponent();
         }
+
     }
 }

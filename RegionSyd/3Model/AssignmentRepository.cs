@@ -111,14 +111,14 @@ namespace RegionSyd._3Model
             }
         }
 
-        public void Delete(Assignment assignment)
+        public void Delete(int ID)
         {
             string query = "DELETE FROM ASSIGNMENT WHERE RegionalAssignmentID = @RegionalAssignmentID";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@RegionalAssignmentID", assignment.RegionalAssignmentID);
+                command.Parameters.AddWithValue("@RegionalAssignmentID", ID);
                 connection.Open();
                 command.ExecuteNonQuery();
             }

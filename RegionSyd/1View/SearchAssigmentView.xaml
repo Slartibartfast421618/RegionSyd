@@ -1,0 +1,31 @@
+﻿<Page x:Class="RegionSyd._1View.SearchAssignmentView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RegionSyd._1View"
+        mc:Ignorable="d"
+        Title="E´SearchAssignmentView" Height="420" Width="680">
+    <Grid>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="300,63,0,0" VerticalAlignment="Top" />
+        <TextBox HorizontalAlignment="Left" Margin="111,29,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Fra adresse" HorizontalAlignment="Left" Margin="30,25,0,0" VerticalAlignment="Top"/>
+        <Label Content="Til adresse" HorizontalAlignment="Left" Margin="255,25,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="340,29,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="540,29,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Aftalt tid" HorizontalAlignment="Left" Margin="484,21,0,0" VerticalAlignment="Top"/>
+        <ListView d:ItemsSource="{d:SampleData ItemCount=5}" Margin="20,99,25,18">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="OpgaveID"/>
+                    <GridViewColumn Header="Fra"/>
+                    <GridViewColumn Header="Til"/>
+                    <GridViewColumn Header="Tid"/>
+                    <GridViewColumn Header="Opgavetype"/>
+                    <GridViewColumn Header="Opgave beskrivelse"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+</Page>
