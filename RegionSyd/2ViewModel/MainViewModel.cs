@@ -1,5 +1,4 @@
-﻿
-using RegionSyd._3Model;
+﻿using RegionSyd._3Model;
 
 namespace RegionSyd._2ViewModel
 {

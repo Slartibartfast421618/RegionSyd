@@ -10,6 +10,6 @@
         <StackPanel Margin="0,0,680,0"/>
         <Frame x:Name="Main" Margin="120,0,0,0" NavigationUIVisibility="Hidden"/>
         <Button Content="Opret opgave" HorizontalAlignment="Left" Margin="21,46,0,0" VerticalAlignment="Top" Click="BtnCreateAssignment_Click" Command="{Binding changePageToCreateAssignmentViewModelCommand}"/>
-        <Button Content="Søg opgave" HorizontalAlignment="Left" Margin="20,92,0,0" VerticalAlignment="Top" Click="BtnSearchAssignment_Click"/>
+        <Button Content="Søg opgave" HorizontalAlignment="Left" Margin="20,92,0,0" VerticalAlignment="Top" Click="BtnSearchAssignment_Click" Width="78"/>
     </Grid>
 </Window>

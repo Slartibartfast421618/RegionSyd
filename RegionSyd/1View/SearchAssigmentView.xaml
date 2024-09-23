@@ -7,22 +7,22 @@
         mc:Ignorable="d"
         Title="E´SearchAssignmentView" Height="420" Width="680">
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="300,63,0,0" VerticalAlignment="Top" />
+        <Button Content="Søg" HorizontalAlignment="Left" Margin="300,63,0,0" VerticalAlignment="Top" Command="{Binding SearchCommand}"/>
         <TextBox HorizontalAlignment="Left" Margin="111,29,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <Label Content="Fra adresse" HorizontalAlignment="Left" Margin="30,25,0,0" VerticalAlignment="Top"/>
         <Label Content="Til adresse" HorizontalAlignment="Left" Margin="255,25,0,0" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Margin="340,29,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <TextBox HorizontalAlignment="Left" Margin="540,29,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <Label Content="Aftalt tid" HorizontalAlignment="Left" Margin="484,21,0,0" VerticalAlignment="Top"/>
-        <ListView d:ItemsSource="{d:SampleData ItemCount=5}" Margin="20,99,25,18">
+        <ListView ItemsSource="{Binding Assignments}" Margin="20,99,25,18">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="OpgaveID"/>
-                    <GridViewColumn Header="Fra"/>
-                    <GridViewColumn Header="Til"/>
-                    <GridViewColumn Header="Tid"/>
-                    <GridViewColumn Header="Opgavetype"/>
-                    <GridViewColumn Header="Opgave beskrivelse"/>
+                    <GridViewColumn Header="OpgaveID" Binding ="{Binding Assignment.RegionalAssignmentID}"/>
+                    <GridViewColumn Header="Fra" Binding ="{Binding Assignment.AddressFrom}"/>
+                    <GridViewColumn Header="Til" Binding ="{Binding Assignment.AddressTo}"/>
+                    <GridViewColumn Header="Tid" Binding ="{Binding Assignment.AppointmentTime}"/>
+                    <GridViewColumn Header="Opgavetype" Binding ="{Binding Assignment.AssignmentType}"/>
+                    <GridViewColumn Header="Opgave beskrivelse" Binding ="{Binding Assignment.AssignmentDescription}"/>
                 </GridView>
             </ListView.View>
         </ListView>

@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace TheMovies.MVVM
+namespace RegionSyd._2ViewModel
 {
     internal class ViewModelBase : INotifyPropertyChanged
     {

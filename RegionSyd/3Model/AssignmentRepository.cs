@@ -13,6 +13,7 @@ namespace RegionSyd._3Model
             _connectionString = configuration.GetConnectionString("DefaultConnection");
         }
 
+        // get all assignments in the ASSIGNMENT table 
         public IEnumerable<Assignment> GetAll()
         {
             var assignments = new List<Assignment>();
@@ -48,6 +49,7 @@ namespace RegionSyd._3Model
             return assignments;
         }
 
+        // get the assigntent with the chosen assignmentID from the ASSIGNMENT table
         public Assignment GetById(int id)
         {
             Assignment assignment = null;
@@ -84,6 +86,7 @@ namespace RegionSyd._3Model
             return assignment;
         }
 
+        // add an assignment to the ASSIGNMENT table 
         public void Add(Assignment assignment)
         {
             string query = "INSERT INTO ASSIGNMENT VALUES (@AssignmentToString)";
@@ -97,6 +100,7 @@ namespace RegionSyd._3Model
             }
         }
 
+        // Updates an assignment in the ASSIGNMENT table chosen by the RegionalAssignmentID
         public void Update(Assignment assignment)
         {
             string query = "UPDATE ASSIGNMENT SET @AssignmentToUpdate WHERE RegionalAssignmentID = @RegionalAssignmentID";
@@ -111,6 +115,7 @@ namespace RegionSyd._3Model
             }
         }
 
+        // Delete an assignment in the ASSIGNMENT table chosen by the RegionalAssignmentID
         public void Delete(int ID)
         {
             string query = "DELETE FROM ASSIGNMENT WHERE RegionalAssignmentID = @RegionalAssignmentID";

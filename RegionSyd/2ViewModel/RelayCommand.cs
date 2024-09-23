@@ -1,6 +1,6 @@
 ﻿using System.Windows.Input;
 
-namespace TheMovies.MVVM
+namespace RegionSyd._2ViewModel
 {
     internal class RelayCommand : ICommand
     {
