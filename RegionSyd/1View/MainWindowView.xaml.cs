@@ -22,14 +22,9 @@ namespace RegionSyd._1View
             InitializeComponent();
         }
 
-        private void BtnCreateAssignment_Click(object sender, RoutedEventArgs e)
+        public void NavigateTo(Page page)
         {
-            Main.Content = new CreateAssignmentView();
-        }
-
-        private void BtnSearchAssignment_Click(object sender, RoutedEventArgs e)
-        {
-            Main.Content = new SearchAssignmentView();
+            MainFrame.Navigate(page);
         }
     }
 }

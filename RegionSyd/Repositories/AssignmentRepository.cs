@@ -1,7 +1,8 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Data.SqlClient;
+using RegionSyd._3Model;
 
-namespace RegionSyd._3Model
+namespace RegionSyd.Repositories
 {
     public class AssignmentRepository : IRepository<Assignment>
     {
@@ -127,6 +128,11 @@ namespace RegionSyd._3Model
                 connection.Open();
                 command.ExecuteNonQuery();
             }
+        }
+
+        public void Remove(Assignment assignment)
+        {
+            throw new NotImplementedException();
         }
     }
 }

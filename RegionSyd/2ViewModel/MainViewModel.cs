@@ -1,16 +1,21 @@
-﻿using RegionSyd._3Model;
+﻿using RegionSyd.Services;
+using RegionSyd.Utilities;
+using System.Windows.Input;
 
 namespace RegionSyd._2ViewModel
 {
-    internal class MainViewModel
+    public class MainViewModel : ViewModelBase
     {
-        private readonly IRepository<Assignment> _assignmentRepository;
-        
-        public MainViewModel(IRepository<Assignment> assignmentRepository)
-        {
-            
-            _assignmentRepository = assignmentRepository;
+        private readonly INavigationService _navigationService;
 
+        public ICommand OpenCreateAssignmentViewCommand { get; }
+        public ICommand OpenSearchAssignmentViewCommand { get; }
+
+        public MainViewModel(INavigationService navigationService)
+        {
+            _navigationService = navigationService;
+            OpenCreateAssignmentViewCommand = new RelayCommand(_navigationService.OpenCreateAssignmentView);
+            OpenSearchAssignmentViewCommand = new RelayCommand(_navigationService.OpenSearchAssignmentView);
         }
     }
 }

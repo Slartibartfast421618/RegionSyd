@@ -1,95 +1,63 @@
 ﻿using RegionSyd._3Model;
 using RegionSyd.Repositories;
 using System.Collections.ObjectModel;
+using Microsoft.Extensions.Configuration;
 
 namespace RegionSyd.Services
 {
     public class SharedDataService
     {
-        // Repositories for database connection
-        private readonly ItemRepository _itemRepository;
-        private readonly CustomerRepository _customerRepository;
-        private readonly PurchaseRepository _purchaseRepository;
+        // Repositories for database handling
+        private readonly AssignmentRepository _assignmentRepository;
 
         // Collections for Views to watch
-        public ObservableCollection<Item> Items { get; private set; }
-        public ObservableCollection<Customer> Customers { get; private set; }
-        public ObservableCollection<Purchase> Purchases { get; private set; }
+        public ObservableCollection<Assignment> Assignments { get; private set; }
 
-        public SharedDataService()
+        public SharedDataService(IConfiguration configuration)
         {
-            // Database link
-            _itemRepository = new ItemRepository();
-            _customerRepository = new CustomerRepository();
-            _purchaseRepository = new PurchaseRepository();
+            // Database links
+            _assignmentRepository = new AssignmentRepository(configuration);
 
-            Items = new ObservableCollection<Item>();
-            Customers = new ObservableCollection<Customer>();
-            Purchases = new ObservableCollection<Purchase>();
+            // ObservableCollections for holding data and binding to
+            Assignments = new ObservableCollection<Assignment>();
 
-            LoadData();
+            // Load database on launch
+            //LoadData();
         }
 
         private void LoadData()
         {
-            var items = _itemRepository.GetAll();
-            var customers = _customerRepository.GetAll();
-            // Next line is specific for loading dummy data
-            _purchaseRepository.LoadDummy(_itemRepository, _customerRepository);
-            var purchases = _purchaseRepository.GetAll();
+            var assignments = _assignmentRepository.GetAll();
 
             // Loaders
-            foreach (var item in items ) 
-                Items.Add(item);
-            foreach (var customer in customers )
-                Customers.Add(customer);
-            foreach (var purchase in purchases )
-                Purchases.Add(purchase);
+            foreach (var assignment in assignments ) 
+                Assignments.Add(assignment);
         }
 
         // Chat code, not linked up to anything!
         // Essentially, SharedDataService talks to repositories, repositories talks to external data source
 
-        // Item commands
-        public void SaveItem(Item item)
+        // Assignment commands
+        public void SaveAssignment(Assignment assignment)
         {
-            if (!Items.Contains(item))
+            if (!Assignments.Contains(assignment))
             {
-                Items.Add(item);
-                _itemRepository.Add(item);
+                Assignments.Add(assignment);
+                _assignmentRepository.Add(assignment);
             }
             //else
-            //    _itemRepository.Update(item);
+            //    _assignmentRepository.Update(assignment);
         }
 
-        public void DeleteItem(Item item)
+        public void DeleteAssignemnt(Assignment assignment)
         {
-            if (Items.Contains(item))
+            if (Assignments.Contains(assignment))
             {
-                Items.Remove(item);
-                _itemRepository.Remove(item);
+                Assignments.Remove(assignment);
+                _assignmentRepository.Remove(assignment);
             }
         }
 
-        // Customer commands
-        public void SaveCustomer(Customer customer)
-        {
-            if (!Customers.Contains(customer))
-            {
-                Customers.Add(customer);
-                _customerRepository.Add(customer);
-            }
-            //else
-            //    _itemRepository.Update(item);
-        }
-
-        public void DeleteCustomer(Customer customer)
-        {
-            if (Customers.Contains(customer))
-            {
-                Customers.Remove(customer);
-                _customerRepository.Remove(customer);
-            }
-        }
+        // Next set of commands
     }
 }

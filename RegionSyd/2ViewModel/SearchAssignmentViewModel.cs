@@ -5,21 +5,36 @@ using System.Text;
 using System.Threading.Tasks;
 using RegionSyd._3Model;
 using System.Collections.ObjectModel;
+using RegionSyd.Services;
+using RegionSyd.Utilities;
+using System.Windows.Input;
 
 namespace RegionSyd._2ViewModel
 {
-    internal class SearchAssignmentViewModel : ViewModelBase
+    public class SearchAssignmentViewModel : ViewModelBase
     {
-        private ObservableCollection<Assignment> _assignments;
-        public ObservableCollection<Assignment> Assignments
+        private readonly SharedDataService _sharedDataService;
+
+        // Workspaces
+        public ObservableCollection<Assignment> Assignments => _sharedDataService.Assignments;
+
+        private Assignment _selectedAssignment;
+        public Assignment SelectedAssignment
         {
-            get { return _assignments; }
-            set
-            {
-                               
-            }
+            get { return _selectedAssignment; }
+            set { _selectedAssignment = value; OnPropertyChanged(); }
         }
 
-        
+        // Commands for binding
+        //public ICommand AddCreateAssignmentCommand { get; }
+
+        // Constructor
+        public SearchAssignmentViewModel(SharedDataService sharedDataService)
+        {
+            _sharedDataService = sharedDataService;
+            //AddCreateAssignmentCommand = new RelayCommand(AddSearchAssignment);
+        }
+
+
     }
 }

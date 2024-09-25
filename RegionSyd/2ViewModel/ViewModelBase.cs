@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace RegionSyd._2ViewModel
 {
-    internal class ViewModelBase : INotifyPropertyChanged
+    public class ViewModelBase : INotifyPropertyChanged
     {
         // INotifyPropertyChanged handler
         public event PropertyChangedEventHandler PropertyChanged;

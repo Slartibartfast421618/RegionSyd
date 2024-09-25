@@ -4,8 +4,9 @@ using System.IO;
 using RegionSyd._1View;
 using RegionSyd._3Model;
 using RegionSyd._2ViewModel;
+using RegionSyd.Services;
 
-namespace YourAppNamespace
+namespace RegionSyd
 {
     public partial class App : Application
     {
@@ -22,15 +23,27 @@ namespace YourAppNamespace
                 .Build();
 
             // Opret dependencies manuelt
-            var repository = new AssignmentRepository(_configuration);
-            var mainViewModel = new MainViewModel(repository);
+            //var repository = new AssignmentRepository(_configuration);
+            //var mainViewModel = new MainViewModel(repository);
 
-            // Opret MainWindow med den ViewModel
-            var mainWindow = new MainWindowView
-            {
-                DataContext = mainViewModel
-            };
+            MainWindowView mainWindow = new MainWindowView();
 
+            // Services used in ViewModels
+            // 1. Class to hold data
+            SharedDataService sharedDataService = new(_configuration);
+            // 2. Class for navigation, conviniently handling data holder
+            NavigationService navigationService = new(sharedDataService, mainWindow);
+
+            //var mainWindow = new MainWindowView
+            //{
+            //    // MainWindow is the navigation screen
+            //    DataContext = new MainViewModel(navigationService)
+            //};
+
+            MainViewModel mainVM = new MainViewModel(navigationService);
+            mainWindow.DataContext = mainVM;
+
+            // Launching MainWindow this way means we remove it from App.xaml's StartupUri
             mainWindow.Show();
         }
     }

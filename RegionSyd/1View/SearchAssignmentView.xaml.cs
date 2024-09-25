@@ -5,16 +5,17 @@ using System.Windows.Controls;
 namespace RegionSyd._1View
 {
     /// <summary>
-    /// Interaction logic for CreateAssignmentView.xaml
+    /// Interaction logic for SearchAssignmentView.xaml
     /// </summary>
-    public partial class CreateAssignmentView : Page
+    public partial class SearchAssignmentView : Page
     {
-        public CreateAssignmentView(SharedDataService sharedDataService)
+        public SearchAssignmentView(SharedDataService sharedDataService)
         {
             InitializeComponent();
 
             // Set DataContext to the SharedDataService from NavigationService
-            DataContext = new CreateAssignmentViewModel(sharedDataService);
+            DataContext = new SearchAssignmentViewModel(sharedDataService);
         }
+
     }
 }

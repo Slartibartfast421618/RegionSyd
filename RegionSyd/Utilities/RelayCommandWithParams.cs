@@ -1,8 +1,8 @@
 ﻿using System.Windows.Input;
 
-namespace RegionSyd._2ViewModel
+namespace RegionSyd.Utilities
 {
-    internal class RelayCommand : ICommand
+    public class RelayCommandWithParams : ICommand
     {
         private Action<object> _execute;
         private Func<object, bool> _canExecute;
@@ -20,7 +20,7 @@ namespace RegionSyd._2ViewModel
             }
         }
 
-        public RelayCommand(Action<object> execute, Func<object, bool> canExecute = null)
+        public RelayCommandWithParams(Action<object> execute, Func<object, bool> canExecute = null)
         {
             _execute = execute;
             _canExecute = canExecute;

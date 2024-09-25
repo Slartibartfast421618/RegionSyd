@@ -6,30 +6,38 @@ namespace RegionSyd.Services
     {
         // NavigationService becomes the propagator for our SharedDataService
         private readonly SharedDataService _sharedDataService;
+        private readonly MainWindowView _mainWindowView;
 
-        public NavigationService(SharedDataService sharedDataService) 
+        public NavigationService(SharedDataService sharedDataService, MainWindowView mainWindowView) 
         {
             _sharedDataService = sharedDataService;
+            _mainWindowView = mainWindowView;
+        }
+
+        // Pages to be opened
+        public void OpenCreateAssignmentView()
+        {
+            _mainWindowView.NavigateTo(new CreateAssignmentView(_sharedDataService));
+        }
+
+        public void OpenSearchAssignmentView()
+        {
+            _mainWindowView.NavigateTo(new SearchAssignmentView(_sharedDataService));
         }
 
         // Windows to be opened
         // Remember to propagate data as necessary!
-        public void OpenItemWindow()
-        {
-            var itemWindow = new ItemWindow(_sharedDataService);
-            itemWindow.Show();
-        }
+        //public void OpenCreateAssignmentView()
+        //{
+        //    var createAssignmentView = new CreateAssignmentView(_sharedDataService);
+        //    createAssignmentView.Show();
+            
+        //}
 
-        public void OpenCustomerWindow()
-        {
-            var customerWindow = new CustomerWindow(_sharedDataService);
-            customerWindow.Show();
-        }
-
-        public void OpenPurchaseWindow()
-        {
-            var purchaseWindow = new PurchaseWindow(_sharedDataService);
-            purchaseWindow.Show();
-        }
+        //public void OpenSearchAssignmentView()
+        //{
+        //    var searchAssignmentView = new SearchAssignmentView(_sharedDataService);
+        //    searchAssignmentView.Show();
+        //}
     }
 }
