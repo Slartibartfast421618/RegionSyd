@@ -7,10 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindowView" Height="450" Width="800">
     <Grid>
-        <StackPanel Margin="0,0,680,0"/>
-        <Frame x:Name="MainFrame" Margin="120,0,0,0" NavigationUIVisibility="Hidden"/>
-        <Grid Height="434" Width="120"
-              HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Grid Height="Auto" Width="120"
+              HorizontalAlignment="Left" VerticalAlignment="Stretch" Background="WhiteSmoke">
             <Button Content="Opret opgave" Margin="0,20,0,0" 
                     HorizontalAlignment="Center" VerticalAlignment="Top" 
                     Height="30" Width="80" 
@@ -20,5 +18,7 @@
                     Height="30" Width="80"
                 Command="{Binding OpenSearchAssignmentViewCommand}"/>
         </Grid>
+        <Frame x:Name="MainFrame" Margin="120,0,0,0" NavigationUIVisibility="Hidden" 
+               HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
     </Grid>
 </Window>

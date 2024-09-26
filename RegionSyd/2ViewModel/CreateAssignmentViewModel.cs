@@ -82,6 +82,7 @@ namespace RegionSyd._2ViewModel
             _sharedDataService = sharedDataService;
             AddCreateAssignmentCommand = new RelayCommand(AddCreateAssignment);
 
+            AppointmentTime = new TimeOnly(00, 00);
             AppointmentDate = DateOnly.FromDateTime(DateTime.Now);
         }
 

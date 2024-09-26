@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
+using System.Windows.Input;
 using RegionSyd._3Model;
-using System.Collections.ObjectModel;
 using RegionSyd.Services;
 using RegionSyd.Utilities;
-using System.Windows.Input;
 
 namespace RegionSyd._2ViewModel
 {
@@ -17,6 +12,7 @@ namespace RegionSyd._2ViewModel
 
         // Workspaces
         public ObservableCollection<Assignment> Assignments => _sharedDataService.Assignments;
+        public List<Assignment> FilteredAssignments { get; set; }
 
         private Assignment _selectedAssignment;
         public Assignment SelectedAssignment
@@ -25,16 +21,42 @@ namespace RegionSyd._2ViewModel
             set { _selectedAssignment = value; OnPropertyChanged(); }
         }
 
+        private string _searchAddressFrom;
+        public string SearchAddressFrom
+        {
+            get { return _searchAddressFrom; }
+            set { _searchAddressFrom = value; OnPropertyChanged(); }
+        }
+
+        private string _searchAddressTo;
+        public string SearchAddressTo
+        {
+            get { return _searchAddressTo; }
+            set { _searchAddressTo = value; OnPropertyChanged(); }
+        }
+
+        private TimeOnly _searchAssignmentTime;
+        public TimeOnly SearchAssignmentTime
+        {
+            get { return _searchAssignmentTime; }
+            set { _searchAssignmentTime = value; OnPropertyChanged(); }
+        }
+
         // Commands for binding
-        //public ICommand AddCreateAssignmentCommand { get; }
+        public ICommand SearchThroughAssignmentsCommand { get; }
 
         // Constructor
         public SearchAssignmentViewModel(SharedDataService sharedDataService)
         {
             _sharedDataService = sharedDataService;
-            //AddCreateAssignmentCommand = new RelayCommand(AddSearchAssignment);
+            SearchThroughAssignmentsCommand = new RelayCommand(SearchThroughAssignments);
+
+            FilteredAssignments = Assignments.ToList();
         }
 
+        public void SearchThroughAssignments()
+        {
 
+        }
     }
 }

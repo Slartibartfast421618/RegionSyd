@@ -6,63 +6,63 @@
         xmlns:local="clr-namespace:RegionSyd._1View"
         mc:Ignorable="d"
         Title="CreateAssignmentView" Height="420" Width="680">
-    <Grid>
-        <Label Content="OpgaveID" Margin="20,20,0,0" HorizontalContentAlignment="Right" 
+    <Grid Height="420" Width="680">
+        <Label Content="Opgave ID" Margin="10,10,0,0" HorizontalContentAlignment="Right" 
                HorizontalAlignment="Left" VerticalAlignment="Top"
-               Height="25" Width="120"/>
+               Height="25" Width="80"/>
         <TextBox Text="{Binding RegionalAssignmentID}" 
-                 Margin="140,20,0,0" TextWrapping="Wrap" TextAlignment="Left" 
+                 Margin="90,10,0,0" TextWrapping="Wrap" TextAlignment="Left" 
                  HorizontalAlignment="Left" VerticalAlignment="Top" 
                  Height="25" Width="120" />
-        <Label Content="OpgaveType" Margin="80,100,0,0" HorizontalContentAlignment="Right" 
+        <Label Content="Type" Margin="10,100,0,0" HorizontalContentAlignment="Right" 
                HorizontalAlignment="Left" VerticalAlignment="Top"
                Height="25" Width="120"/>
         <TextBox Text="{Binding AssignmentType}" 
-                 Margin="200,100,0,0" TextWrapping="Wrap" TextAlignment="Left" 
+                 Margin="130,100,0,0" TextWrapping="Wrap" TextAlignment="Left" 
                  HorizontalAlignment="Left" VerticalAlignment="Top" 
-                 Height="25" Width="120"/>
+                 Height="25" Width="210"/>
         <Label Content="Patient" Margin="340,100,0,0" HorizontalContentAlignment="Right" 
                HorizontalAlignment="Left" VerticalAlignment="Top"
                Height="25" Width="120"/>
         <TextBox Text="{Binding PatientName}" 
                  Margin="460,100,0,0" TextWrapping="Wrap" 
                  HorizontalAlignment="Left" VerticalAlignment="Top" 
-                 Height="25" Width="120"/>
-        <Label Content="OpgaveBeskrivelse" Margin="80,140,0,0" HorizontalContentAlignment="Right" 
+                 Height="25" Width="210"/>
+        <Label Content="Beskrivelse" Margin="10,140,0,0" HorizontalContentAlignment="Right" 
                HorizontalAlignment="Left" VerticalAlignment="Top"
                Height="25" Width="120"/>
         <TextBox Text="{Binding AssignmentDescription}" 
-                 Margin="200,140,0,0" TextWrapping="Wrap" 
+                 Margin="130,140,0,0" TextWrapping="Wrap" 
                  HorizontalAlignment="Left" VerticalAlignment="Top" 
-                 Height="65" Width="380"/>
-        <Label Content="Tid" Margin="80,220,0,0" HorizontalContentAlignment="Right" 
+                 Height="65" Width="540"/>
+        <Label Content="Tidspunkt" Margin="10,220,0,0" HorizontalContentAlignment="Right" 
                HorizontalAlignment="Left" VerticalAlignment="Top"
                Height="25" Width="120"/>
         <TextBox Text="{Binding AppointmentTime}" 
-                 Margin="200,220,0,0" TextWrapping="Wrap" 
+                 Margin="130,220,0,0" TextWrapping="Wrap" 
                  HorizontalAlignment="Left" VerticalAlignment="Top" 
-                 Height="25" Width="120"/>
+                 Height="25" Width="210"/>
         <Label Content="Dato" Margin="340,220,0,0" HorizontalContentAlignment="Right" 
                HorizontalAlignment="Left" VerticalAlignment="Top"
                Height="25" Width="120"/>
         <TextBox Text="{Binding AppointmentDate}" 
                  Margin="460,220,0,0" TextWrapping="Wrap" 
                  HorizontalAlignment="Left" VerticalAlignment="Top"     
-                 Height="25" Width="120"/>
-        <Label Content="AdresseFra" Margin="80,260,0,0" HorizontalContentAlignment="Right" 
+                 Height="25" Width="210"/>
+        <Label Content="Fra adresse" Margin="10,260,0,0" HorizontalContentAlignment="Right" 
                HorizontalAlignment="Left" VerticalAlignment="Top"
                Height="25" Width="120"/>
         <TextBox Text="{Binding AddressFrom}" 
-                 Margin="200,260,0,0" TextWrapping="Wrap" 
+                 Margin="130,260,0,0" TextWrapping="Wrap" 
                  HorizontalAlignment="Left" VerticalAlignment="Top" 
-                 Height="25" Width="120"/>
-        <Label Content="AdresseTil" Margin="340,260,0,0" HorizontalContentAlignment="Right" 
+                 Height="25" Width="210"/>
+        <Label Content="Til adresse" Margin="340,260,0,0" HorizontalContentAlignment="Right" 
                HorizontalAlignment="Left" VerticalAlignment="Top"
                Height="25" Width="120"/>
         <TextBox Text="{Binding AddressTo}" 
                  Margin="460,260,0,0" TextWrapping="Wrap" 
                  HorizontalAlignment="Left" VerticalAlignment="Top" 
-                 Height="25" Width="120"/>
+                 Height="25" Width="210"/>
         <Button Content="Gem" Command="{Binding AddCreateAssignmentCommand}" 
                 HorizontalAlignment="Left" VerticalAlignment="Top" Margin="350,330,100,0" 
                 Height="40" Width="60"/>

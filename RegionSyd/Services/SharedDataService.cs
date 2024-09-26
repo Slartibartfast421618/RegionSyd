@@ -23,6 +23,21 @@ namespace RegionSyd.Services
 
             // Load database on launch
             //LoadData();
+            
+            // Dummy data for now
+            Assignments.Add(new Assignment{
+                RegionalAssignmentID = "SY010203040506070809",
+                AssignmentType = "Akut",
+                AssignmentDescription = "Lortet brænder. Husk at tage Olafs arm med.",
+                PatientName = "Olaf",
+                AppointmentTime = new TimeOnly(00, 00),
+                AppointmentDate = new DateOnly(2004, 12, 31),
+                AddressFrom = "Vejvej 3, Vejle",
+                AddressTo = "Gadegade 9, Gadele",
+                DisponentDelegator = 007,
+                DisponentCreator = 001,
+                RegionID = 2
+            });
         }
 
         private void LoadData()
