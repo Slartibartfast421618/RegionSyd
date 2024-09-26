@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
+using Microsoft.IdentityModel.Tokens;
 using RegionSyd._3Model;
 using RegionSyd.Services;
 using RegionSyd.Utilities;
@@ -12,7 +13,12 @@ namespace RegionSyd._2ViewModel
 
         // Workspaces
         public ObservableCollection<Assignment> Assignments => _sharedDataService.Assignments;
-        public List<Assignment> FilteredAssignments { get; set; }
+        private ObservableCollection<Assignment> _filteredAssignments;
+        public ObservableCollection<Assignment> FilteredAssignments 
+        { 
+            get {  return _filteredAssignments; }
+            set { _filteredAssignments = value; OnPropertyChanged(); }
+        }
 
         private Assignment _selectedAssignment;
         public Assignment SelectedAssignment
@@ -34,7 +40,7 @@ namespace RegionSyd._2ViewModel
             get { return _searchAddressTo; }
             set { _searchAddressTo = value; OnPropertyChanged(); }
         }
-
+        // Are we sure this is a reasonable search criteria? How should it work?
         private TimeOnly _searchAssignmentTime;
         public TimeOnly SearchAssignmentTime
         {
@@ -51,12 +57,29 @@ namespace RegionSyd._2ViewModel
             _sharedDataService = sharedDataService;
             SearchThroughAssignmentsCommand = new RelayCommand(SearchThroughAssignments);
 
-            FilteredAssignments = Assignments.ToList();
+            // Make a new ObsCol from main Assignment, in order to break databind
+            // Otherwise, the filtering deletes entries
+            FilteredAssignments = new ObservableCollection<Assignment>(Assignments);
+
+            // Making sure strings aren't null to avoid issues, and a lot of checks
+            SearchAddressFrom = string.Empty; SearchAddressTo = string.Empty;
         }
 
         public void SearchThroughAssignments()
         {
+            // Check if a filter is empty, if it is, don't use it. 
+            // Filters: SearchAddressFrom, SearchAddressTo, SearchAssignmentTime
+            // Take data from Assignments, overlay to FilteredAssignments
+            SearchAddressFrom.IsNullOrEmpty(); SearchAddressTo.IsNullOrEmpty();
 
+            var tempList = Assignments.ToList().FindAll(x
+                => (x.AddressFrom?.Contains(SearchAddressFrom) == true || SearchAddressFrom.IsNullOrEmpty())
+                && (x.AddressTo?.Contains(SearchAddressTo) == true || SearchAddressTo.IsNullOrEmpty()));
+            
+            // Use .Clear() to retain databinding
+            FilteredAssignments.Clear();
+            foreach (Assignment assignment in tempList) 
+                FilteredAssignments.Add(assignment);
         }
     }
 }

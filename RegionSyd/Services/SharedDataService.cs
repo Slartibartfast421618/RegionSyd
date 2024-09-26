@@ -23,9 +23,10 @@ namespace RegionSyd.Services
 
             // Load database on launch
             //LoadData();
-            
+
             // Dummy data for now
-            Assignments.Add(new Assignment{
+            Assignments.Add(new Assignment
+            {
                 RegionalAssignmentID = "SY010203040506070809",
                 AssignmentType = "Akut",
                 AssignmentDescription = "Lortet brænder. Husk at tage Olafs arm med.",
@@ -34,6 +35,48 @@ namespace RegionSyd.Services
                 AppointmentDate = new DateOnly(2004, 12, 31),
                 AddressFrom = "Vejvej 3, Vejle",
                 AddressTo = "Gadegade 9, Gadele",
+                DisponentDelegator = 007,
+                DisponentCreator = 001,
+                RegionID = 2
+            }); 
+            Assignments.Add(new Assignment
+            {
+                RegionalAssignmentID = "SY090807060504030201",
+                AssignmentType = "Akut",
+                AssignmentDescription = "Lortet Fryser. Husk at tage Olgas storetå med.",
+                PatientName = "Olga",
+                AppointmentTime = new TimeOnly(00, 00),
+                AppointmentDate = new DateOnly(2004, 12, 31),
+                AddressFrom = "Vejvej 4, Vejle",
+                AddressTo = "Gadegade 9, Gadele",
+                DisponentDelegator = 007,
+                DisponentCreator = 001,
+                RegionID = 2
+            });
+            Assignments.Add(new Assignment
+            {
+                RegionalAssignmentID = "SY000000000123465789",
+                AssignmentType = "Transport",
+                AssignmentDescription = "Hilda skal besøge sin mor.",
+                PatientName = "Hilda",
+                AppointmentTime = new TimeOnly(00, 00),
+                AppointmentDate = new DateOnly(2004, 12, 31),
+                AddressFrom = "Gadegade 9, Gadele",
+                AddressTo = "Ringsted 123, Finstrup",
+                DisponentDelegator = 007,
+                DisponentCreator = 001,
+                RegionID = 2
+            });
+            Assignments.Add(new Assignment
+            {
+                RegionalAssignmentID = "SY123456789000000000",
+                AssignmentType = "Flyvsk ambutation",
+                AssignmentDescription = "With great pleasure, cums great...",
+                PatientName = "Rasmus",
+                AppointmentTime = new TimeOnly(00, 00),
+                AppointmentDate = new DateOnly(2004, 12, 31),
+                AddressFrom = "Ringsted 123, Finstrup",
+                AddressTo = "Tissted 321, Skagen",
                 DisponentDelegator = 007,
                 DisponentCreator = 001,
                 RegionID = 2

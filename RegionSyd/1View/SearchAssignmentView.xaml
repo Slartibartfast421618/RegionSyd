@@ -13,13 +13,15 @@
                 Height="55" Width="55"/>
 
         <Label Content="Fra adresse" Margin="10,10,0,0" HorizontalContentAlignment="Center" 
-               HorizontalAlignment="Left" VerticalAlignment="Top" Width="240"/>
+               HorizontalAlignment="Left" VerticalAlignment="Top" 
+               Height="25" Width="240"/>
         <TextBox Text="{Binding SearchAddressFrom}" 
                  Margin="10,40,0,0" TextWrapping="Wrap" 
                  HorizontalAlignment="Left" VerticalAlignment="Top" 
                  Height="25" Width="240"/>
         <Label Content="Til adresse" Margin="265,10,0,0" HorizontalContentAlignment="Center" 
-               HorizontalAlignment="Left" VerticalAlignment="Top" Width="240"/>
+               HorizontalAlignment="Left" VerticalAlignment="Top" 
+               Height="25" Width="240"/>
         <TextBox Text="{Binding SearchAddressTo}" 
                  Margin="265,40,0,0" TextWrapping="Wrap" 
                  HorizontalAlignment="Left" VerticalAlignment="Top" 
@@ -32,8 +34,10 @@
                  HorizontalAlignment="Left" VerticalAlignment="Top" 
                  Height="25" Width="80"/>
 
-        <DataGrid ItemsSource="{Binding Assignments}" SelectedItem="{Binding SelectedAssignment}" 
-                  Margin="10,80,10,10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <DataGrid ItemsSource="{Binding FilteredAssignments}" SelectedItem="{Binding SelectedAssignment}" 
+                  CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" 
+                  Margin="10,80,10,10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                  AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="OpgaveID" Binding="{Binding RegionalAssignmentID}" Width="70"/>
                 <DataGridTextColumn Header="Fra" Binding="{Binding AddressFrom}" Width="120"/>
