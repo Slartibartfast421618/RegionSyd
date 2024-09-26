@@ -91,7 +91,7 @@ namespace RegionSyd._2ViewModel
             // Check if everything seems reasonably valid
             // TO-DO: Missing check for RegionalAssignmentID being unique
             if (!RegionalAssignmentID.IsNullOrEmpty() && !AssignmentType.IsNullOrEmpty() 
-                && !AssignmentDescription.IsNullOrEmpty() !&& PatientName.IsNullOrEmpty()
+                && !AssignmentDescription.IsNullOrEmpty() && !PatientName.IsNullOrEmpty()
                 && AppointmentTime.IsBetween(new TimeOnly(00, 00), new TimeOnly(23, 59)) 
                 && AppointmentDate >= DateOnly.FromDateTime(DateTime.Now)
                 && !AddressFrom.IsNullOrEmpty() && !AddressTo.IsNullOrEmpty())
