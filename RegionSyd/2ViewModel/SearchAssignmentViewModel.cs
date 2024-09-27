@@ -70,7 +70,6 @@ namespace RegionSyd._2ViewModel
             // Check if a filter is empty, if it is, don't use it. 
             // Filters: SearchAddressFrom, SearchAddressTo, SearchAssignmentTime
             // Take data from Assignments, overlay to FilteredAssignments
-            SearchAddressFrom.IsNullOrEmpty(); SearchAddressTo.IsNullOrEmpty();
 
             var tempList = Assignments.ToList().FindAll(x
                 => (x.AddressFrom?.Contains(SearchAddressFrom) == true || SearchAddressFrom.IsNullOrEmpty())
