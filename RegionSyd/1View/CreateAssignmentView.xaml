@@ -91,8 +91,9 @@
                  Margin="460,300,0,0" TextWrapping="Wrap" 
                  HorizontalAlignment="Left" VerticalAlignment="Top" 
                  Height="25" Width="210"/>
-        <Button Content="Gem" Margin="350,350,100,0" 
-                Command="{Binding AddCreateAssignmentCommand}" 
+        <Button Command="{Binding AddCreateAssignmentCommand}" 
+                Content="Gem" Margin="350,350,100,0" 
+                FontSize="16" FontWeight="Bold" 
                 HorizontalAlignment="Left" VerticalAlignment="Top" 
                 Height="40" Width="60"/>
     </Grid>
