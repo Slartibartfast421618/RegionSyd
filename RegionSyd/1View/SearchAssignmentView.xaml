@@ -15,14 +15,14 @@
         <Label Content="Fra adresse" Margin="10,10,0,0" HorizontalContentAlignment="Center" 
                HorizontalAlignment="Left" VerticalAlignment="Top" 
                Height="25" Width="240"/>
-        <TextBox Text="{Binding SearchAddressFrom}" 
+        <TextBox Text="{Binding SearchZipcodeFrom}" 
                  Margin="10,40,0,0" TextWrapping="Wrap" 
                  HorizontalAlignment="Left" VerticalAlignment="Top" 
                  Height="25" Width="240"/>
         <Label Content="Til adresse" Margin="265,10,0,0" HorizontalContentAlignment="Center" 
                HorizontalAlignment="Left" VerticalAlignment="Top" 
                Height="25" Width="240"/>
-        <TextBox Text="{Binding SearchAddressTo}" 
+        <TextBox Text="{Binding SearchZipcodeTo}" 
                  Margin="265,40,0,0" TextWrapping="Wrap" 
                  HorizontalAlignment="Left" VerticalAlignment="Top" 
                  Height="25" Width="240"/>
@@ -40,8 +40,8 @@
                   AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="OpgaveID" Binding="{Binding RegionalAssignmentID}" Width="70"/>
-                <DataGridTextColumn Header="Fra" Binding="{Binding AddressFrom}" Width="120"/>
-                <DataGridTextColumn Header="Til" Binding="{Binding AddressTo}" Width="120"/>
+                <DataGridTextColumn Header="Fra" Binding="{Binding ZipcodeFrom}" Width="120"/>
+                <DataGridTextColumn Header="Til" Binding="{Binding ZipcodeTo}" Width="120"/>
                 <DataGridTextColumn Header="Tid" Binding="{Binding AppointmentTime}" Width="60"/>
                 <DataGridTextColumn Header="Opg.type" Binding="{Binding AssignmentType}" Width="60"/>
                 <DataGridTextColumn Header="Opgave beskrivelse" Binding="{Binding AssignmentDescription}" Width="200"/>

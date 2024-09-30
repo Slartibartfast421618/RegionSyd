@@ -11,11 +11,14 @@ namespace RegionSyd._3Model
         private string _patientName;
         private TimeOnly _appointmentTime;
         private DateOnly _appointmentDate;
-        private string _addressFrom;
-        private string _addressTo;
-        private int _disponentDelegator;
-        private int _disponentCreator;
-		private int _regionID;
+        private string _streetNameFrom;
+        private int _streetNumberFrom;
+        private int _zipcodeFrom;
+        private string _streetNameTo;
+        private int _streetNumberTo;
+        private int _zipcodeTo;
+        private string _disponentIDDelegator;
+        private string _disponentIDCreator;
 
 		// Properties
         public string RegionalAssignmentID
@@ -54,34 +57,52 @@ namespace RegionSyd._3Model
 			set { _appointmentDate = value; }
 		}
 
-		public string AddressFrom
+		public string StreetNameFrom
 		{
-			get { return _addressFrom; }
-			set { _addressFrom = value; }
+			get { return _streetNameFrom; }
+			set { _streetNameFrom = value; }
 		}
 
-		public string AddressTo
+		public int StreetNumberFrom
 		{
-			get { return _addressTo; }
-			set { _addressTo = value; }
+			get { return _streetNumberFrom; }
+			set { _streetNumberFrom = value; }
 		}
 
-		public int DisponentDelegator
+		public int ZipcodeFrom
 		{
-			get { return _disponentDelegator; }
-			set { _disponentDelegator = value; }
+			get { return _zipcodeFrom; }
+			set { _zipcodeFrom = value; }
+        }
+
+        public string StreetNameTo
+        {
+            get { return _streetNameTo; }
+            set { _streetNameTo = value; }
+        }
+
+        public int StreetNumberTo
+        {
+            get { return _streetNumberTo; }
+            set { _streetNumberTo = value; }
+        }
+
+        public int ZipcodeTo
+		{
+			get { return _zipcodeTo; }
+			set { _zipcodeTo = value; }
 		}
 
-		public int DisponentCreator
+		public string DisponentIDDelegator
 		{
-			get { return _disponentCreator; }
-			set { _disponentCreator = value; }
+			get { return _disponentIDDelegator; }
+			set { _disponentIDDelegator = value; }
 		}
 
-		public int RegionID
+		public string DisponentIDCreator
 		{
-			get { return _regionID; }
-			set { _regionID = value; }
+			get { return _disponentIDCreator; }
+			set { _disponentIDCreator = value; }
 		}
 
         // Constructors
@@ -91,7 +112,7 @@ namespace RegionSyd._3Model
         }
         public Assignment(string rAssID, string assType, string assDes, 
 						string pName, TimeOnly appTime, DateOnly appDate, 
-						string addFrom, string addTo, int disDel, int disCre, int rID)
+						int addFrom, int addTo, string disDel, string disCre)
         {
 			_regionalAssignmentID = rAssID;
 			_assignmentType = assType;
@@ -99,27 +120,26 @@ namespace RegionSyd._3Model
 			_patientName = pName;
 			_appointmentTime = appTime;
 			_appointmentDate = appDate;
-			_addressFrom = addFrom;
-			_addressTo = addTo;
-			_disponentDelegator = disDel;
-			_disponentCreator= disCre;
-			_regionID = rID;
+			_zipcodeFrom = addFrom;
+			_zipcodeTo = addTo;
+			_disponentIDDelegator = disDel;
+			_disponentIDCreator= disCre;
         }
 
         public override string ToString()
         {
             return $"'{RegionalAssignmentID}', '{AssignmentType}', '{AssignmentDescription}', " +
                 $"'{PatientName}', '{AppointmentTime}', '{AppointmentDate}', " +
-                $"'{AddressFrom}', '{AddressTo}', '{DisponentDelegator}', " +
-                $"'{DisponentCreator}', '{RegionID}'";
+                $"'{ZipcodeFrom}', '{ZipcodeTo}', '{DisponentIDDelegator}', " +
+                $"'{DisponentIDCreator}'";
         }
         public string ToUpdate()
         {
             return $"AssignmentType = '{AssignmentType}', AssignmentDescription = '{AssignmentDescription}', " +
                 $"PatientName = '{PatientName}', AppointmentTime = '{AppointmentTime}', " +
-				$"AppointmentDate = '{AppointmentDate}', AddressFrom = '{AddressFrom}', " +
-				$"AddressTo = '{AddressTo}', DisponentDelegator = '{DisponentDelegator}', " +
-                $"DisponentCreator = '{DisponentCreator}', RegionID = '{RegionID}'";
+				$"AppointmentDate = '{AppointmentDate}', ZipcodeFrom = '{ZipcodeFrom}', " +
+				$"ZipcodeTo = '{ZipcodeTo}', DisponentIDDelegator = '{DisponentIDDelegator}', " +
+                $"DisponentIDCreator = '{DisponentIDCreator}'";
         }
     }
 }

@@ -33,11 +33,14 @@ namespace RegionSyd.Services
                 PatientName = "Olaf",
                 AppointmentTime = new TimeOnly(00, 00),
                 AppointmentDate = new DateOnly(2004, 12, 31),
-                AddressFrom = "Vejvej 3, Vejle",
-                AddressTo = "Gadegade 9, Gadele",
-                DisponentDelegator = 007,
-                DisponentCreator = 001,
-                RegionID = 2
+                StreetNameFrom = "Vejvej",
+                StreetNumberFrom = 3,
+                ZipcodeFrom = 4376,
+                StreetNameTo = "Vejvej",
+                StreetNumberTo = 4,
+                ZipcodeTo = 4376,
+                DisponentIDDelegator = "SY007",
+                DisponentIDCreator = "SY001"
             }); 
             Assignments.Add(new Assignment
             {
@@ -47,11 +50,14 @@ namespace RegionSyd.Services
                 PatientName = "Olga",
                 AppointmentTime = new TimeOnly(00, 00),
                 AppointmentDate = new DateOnly(2004, 12, 31),
-                AddressFrom = "Vejvej 4, Vejle",
-                AddressTo = "Gadegade 9, Gadele",
-                DisponentDelegator = 007,
-                DisponentCreator = 001,
-                RegionID = 2
+                StreetNameFrom = "Vejvej",
+                StreetNumberFrom = 4,
+                ZipcodeFrom = 4376,
+                StreetNameTo = "Vejvej",
+                StreetNumberTo = 9,
+                ZipcodeTo = 4376,
+                DisponentIDDelegator = "SY007",
+                DisponentIDCreator = "SY001"
             });
             Assignments.Add(new Assignment
             {
@@ -61,11 +67,14 @@ namespace RegionSyd.Services
                 PatientName = "Hilda",
                 AppointmentTime = new TimeOnly(00, 00),
                 AppointmentDate = new DateOnly(2004, 12, 31),
-                AddressFrom = "Gadegade 9, Gadele",
-                AddressTo = "Ringsted 123, Finstrup",
-                DisponentDelegator = 007,
-                DisponentCreator = 001,
-                RegionID = 2
+                StreetNameFrom = "Vejvej",
+                StreetNumberFrom = 8,
+                ZipcodeFrom = 4376,
+                StreetNameTo = "Gadegade",
+                StreetNumberTo = 25,
+                ZipcodeTo = 6734,
+                DisponentIDDelegator = "SY007",
+                DisponentIDCreator = "SY001"
             });
             Assignments.Add(new Assignment
             {
@@ -75,11 +84,14 @@ namespace RegionSyd.Services
                 PatientName = "Rasmus",
                 AppointmentTime = new TimeOnly(00, 00),
                 AppointmentDate = new DateOnly(2004, 12, 31),
-                AddressFrom = "Ringsted 123, Finstrup",
-                AddressTo = "Tissted 321, Skagen",
-                DisponentDelegator = 007,
-                DisponentCreator = 001,
-                RegionID = 2
+                StreetNameFrom = "Gadevej",
+                StreetNumberFrom = 46,
+                ZipcodeFrom = 1020,
+                StreetNameTo = "Vejgade",
+                StreetNumberTo = 64,
+                ZipcodeTo = 2010,
+                DisponentIDDelegator = "SY007",
+                DisponentIDCreator = "SY001"
             });
         }
 

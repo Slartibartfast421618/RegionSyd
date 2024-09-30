@@ -52,14 +52,14 @@
         <Label Content="Fra adresse" Margin="10,260,0,0" HorizontalContentAlignment="Right" 
                HorizontalAlignment="Left" VerticalAlignment="Top"
                Height="25" Width="120"/>
-        <TextBox Text="{Binding AddressFrom}" 
+        <TextBox Text="{Binding ZipcodeFrom}" 
                  Margin="130,260,0,0" TextWrapping="Wrap" 
                  HorizontalAlignment="Left" VerticalAlignment="Top" 
                  Height="25" Width="210"/>
         <Label Content="Til adresse" Margin="340,260,0,0" HorizontalContentAlignment="Right" 
                HorizontalAlignment="Left" VerticalAlignment="Top"
                Height="25" Width="120"/>
-        <TextBox Text="{Binding AddressTo}" 
+        <TextBox Text="{Binding ZipcodeTo}" 
                  Margin="460,260,0,0" TextWrapping="Wrap" 
                  HorizontalAlignment="Left" VerticalAlignment="Top" 
                  Height="25" Width="210"/>

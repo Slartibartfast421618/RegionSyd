@@ -37,11 +37,10 @@ namespace RegionSyd.Repositories
                             PatientName = (string)reader["PatientName"],
                             AppointmentTime = (TimeOnly)reader["AppointmentTime"],
                             AppointmentDate = (DateOnly)reader["AppointmentDate"],
-                            AddressFrom = (string)reader["AddressFrom"],
-                            AddressTo = (string)reader["AddressTo"],
-                            DisponentDelegator = (int)reader["DisponentDelegator"],
-                            DisponentCreator = (int)reader["DisponentCreator"],
-                            RegionID = (int)reader["RegionID"],
+                            ZipcodeFrom = (int)reader["ZipcodeFrom"],
+                            ZipcodeTo = (int)reader["ZipcodeTo"],
+                            DisponentIDDelegator = (string)reader["DisponentIDDelegator"],
+                            DisponentIDCreator = (string)reader["DisponentIDCreator"],
                         });
                     }
                 }
@@ -74,11 +73,10 @@ namespace RegionSyd.Repositories
                             PatientName = (string)reader["PatientName"],
                             AppointmentTime = (TimeOnly)reader["AppointmentTime"],
                             AppointmentDate = (DateOnly)reader["AppointmentDate"],
-                            AddressFrom = (string)reader["AddressFrom"],
-                            AddressTo = (string)reader["AddressTo"],
-                            DisponentDelegator = (int)reader["DisponentDelegator"],
-                            DisponentCreator = (int)reader["DisponentCreator"],
-                            RegionID = (int)reader["RegionID"],
+                            ZipcodeFrom = (int)reader["ZipcodeFrom"],
+                            ZipcodeTo = (int)reader["ZipcodeTo"],
+                            DisponentIDDelegator = (string)reader["DisponentIDDelegator"],
+                            DisponentIDCreator = (string)reader["DisponentIDCreator"],
                         };
                     }
                 }

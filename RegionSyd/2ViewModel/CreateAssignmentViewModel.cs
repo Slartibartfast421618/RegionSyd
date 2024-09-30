@@ -59,18 +59,18 @@ namespace RegionSyd._2ViewModel
             set { _appointmentDate = value; OnPropertyChanged(); }
         }
 
-        private string _addressFrom;
-        public string AddressFrom
+        private int _zipcodeFrom;
+        public int ZipcodeFrom
         {
-            get { return _addressFrom; }
-            set { _addressFrom = value; OnPropertyChanged(); }
+            get { return _zipcodeFrom; }
+            set { _zipcodeFrom = value; OnPropertyChanged(); }
         }
 
-        private string _addressTo;
-        public string AddressTo
+        private int _zipcodeTo;
+        public int ZipcodeTo
         {
-            get { return _addressTo; }
-            set { _addressTo = value; OnPropertyChanged(); }
+            get { return _zipcodeTo; }
+            set { _zipcodeTo = value; OnPropertyChanged(); }
         }
 
         // Commands for binding
@@ -91,13 +91,14 @@ namespace RegionSyd._2ViewModel
         {
             // Check if everything seems reasonably valid
             // TO-DO: Missing check for RegionalAssignmentID being unique
+            // TO-DO: Figure out better logic for checking AddressIDs
             if (!RegionalAssignmentID.IsNullOrEmpty() && !AssignmentType.IsNullOrEmpty() 
                 && !AssignmentDescription.IsNullOrEmpty() && !PatientName.IsNullOrEmpty()
                 && AppointmentTime.IsBetween(new TimeOnly(00, 00), new TimeOnly(23, 59)) 
                 && AppointmentDate >= DateOnly.FromDateTime(DateTime.Now)
-                && !AddressFrom.IsNullOrEmpty() && !AddressTo.IsNullOrEmpty())
+                && ZipcodeFrom > 0 && ZipcodeTo > 0)
             {
-                // TO-DO: Automatically assign DisponentCreator and RegionID
+                // TO-DO: Automatically assign DisponentIDCreator and RegionID
                 var assignment = new Assignment { 
                     RegionalAssignmentID = this.RegionalAssignmentID, 
                     AssignmentType = this.AssignmentType,
@@ -105,8 +106,8 @@ namespace RegionSyd._2ViewModel
                     PatientName = this.PatientName,
                     AppointmentTime = this.AppointmentTime,
                     AppointmentDate = this.AppointmentDate,
-                    AddressFrom = this.AddressFrom,
-                    AddressTo = this.AddressTo
+                    ZipcodeFrom = this.ZipcodeFrom,
+                    ZipcodeTo = this.ZipcodeTo
                 };
                 _sharedDataService.Assignments.Add(assignment);
             }

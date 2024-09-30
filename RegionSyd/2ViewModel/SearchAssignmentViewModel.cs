@@ -27,18 +27,18 @@ namespace RegionSyd._2ViewModel
             set { _selectedAssignment = value; OnPropertyChanged(); }
         }
 
-        private string _searchAddressFrom;
-        public string SearchAddressFrom
+        private int _searchZipcodeFrom;
+        public int SearchZipcodeFrom
         {
-            get { return _searchAddressFrom; }
-            set { _searchAddressFrom = value; OnPropertyChanged(); }
+            get { return _searchZipcodeFrom; }
+            set { _searchZipcodeFrom = value; OnPropertyChanged(); }
         }
 
-        private string _searchAddressTo;
-        public string SearchAddressTo
+        private int _searchZipcodeTo;
+        public int SearchZipcodeTo
         {
-            get { return _searchAddressTo; }
-            set { _searchAddressTo = value; OnPropertyChanged(); }
+            get { return _searchZipcodeTo; }
+            set { _searchZipcodeTo = value; OnPropertyChanged(); }
         }
         // Are we sure this is a reasonable search criteria? How should it work?
         private TimeOnly _searchAssignmentTime;
@@ -62,18 +62,18 @@ namespace RegionSyd._2ViewModel
             FilteredAssignments = new ObservableCollection<Assignment>(Assignments);
 
             // Making sure strings aren't null to avoid issues, and a lot of checks
-            SearchAddressFrom = string.Empty; SearchAddressTo = string.Empty;
+            SearchZipcodeFrom = 0000; SearchZipcodeTo = 0000;
         }
 
         public void SearchThroughAssignments()
         {
             // Check if a filter is empty, if it is, don't use it. 
-            // Filters: SearchAddressFrom, SearchAddressTo, SearchAssignmentTime
+            // Filters: SearchZipcodeFrom, SearchZipcodeTo, SearchAssignmentTime
             // Take data from Assignments, overlay to FilteredAssignments
 
             var tempList = Assignments.ToList().FindAll(x
-                => (x.AddressFrom?.Contains(SearchAddressFrom) == true || SearchAddressFrom.IsNullOrEmpty())
-                && (x.AddressTo?.Contains(SearchAddressTo) == true || SearchAddressTo.IsNullOrEmpty()));
+                => (x.ZipcodeFrom == SearchZipcodeFrom == true || SearchZipcodeFrom == 0000)
+                && (x.ZipcodeTo == SearchZipcodeTo == true || SearchZipcodeTo == 0000));
             
             // Use .Clear() to retain databinding
             FilteredAssignments.Clear();
