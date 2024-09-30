@@ -15,58 +15,88 @@ namespace RegionSyd._2ViewModel
         // Potentially unnecessary? Check when we have implemented
         public ObservableCollection<Assignment> Assignments => _sharedDataService.Assignments;
 
-        // Properties and backfields
-        // TO-DO: Form RegionAssignmentID from RegionID and assignments.Count()
+        // Backfields
         private string _regionalAssignmentID;
+        private string _assignmentType;
+        private string _assignmentDescription;
+        private string _patientName;
+        private TimeOnly _appointmentTime;
+        private DateOnly _appointmentDate;
+        private string _streetNameFrom;
+        private int _streetNumberFrom;
+        private int _zipcodeFrom;
+        private string _streetNameTo;
+        private int _streetNumberTo;
+        private int _zipcodeTo;
+
+        // Properties
+        // TO-DO: Form RegionAssignmentID from DisponentIDCreator.RegionID and assignments.Count()
         public string RegionalAssignmentID
         {
             get { return _regionalAssignmentID; }
             set { _regionalAssignmentID = value; OnPropertyChanged(); }
         }
 
-        private string _assignmentType;
         public string AssignmentType
         {
             get { return _assignmentType; }
             set { _assignmentType = value; OnPropertyChanged(); }
         }
 
-        private string _assignmentDescription;
         public string AssignmentDescription
         {
             get { return _assignmentDescription; }
             set { _assignmentDescription = value; OnPropertyChanged(); }
         }
 
-        private string _patientName;
         public string PatientName
         {
             get { return _patientName; }
             set { _patientName = value; OnPropertyChanged(); }
         }
 
-        private TimeOnly _appointmentTime;
         public TimeOnly AppointmentTime
         {
             get { return _appointmentTime; }
             set { _appointmentTime = value; OnPropertyChanged(); }
         }
 
-        private DateOnly _appointmentDate;
         public DateOnly AppointmentDate
         {
             get { return _appointmentDate; }
             set { _appointmentDate = value; OnPropertyChanged(); }
         }
 
-        private int _zipcodeFrom;
+        public string StreetNameFrom
+        {
+            get { return _streetNameFrom; }
+            set { _streetNameFrom = value; }
+        }
+
+        public int StreetNumberFrom
+        {
+            get { return _streetNumberFrom; }
+            set { _streetNumberFrom = value; }
+        }
+
         public int ZipcodeFrom
         {
             get { return _zipcodeFrom; }
             set { _zipcodeFrom = value; OnPropertyChanged(); }
         }
 
-        private int _zipcodeTo;
+        public string StreetNameTo
+        {
+            get { return _streetNameTo; }
+            set { _streetNameTo = value; }
+        }
+
+        public int StreetNumberTo
+        {
+            get { return _streetNumberTo; }
+            set { _streetNumberTo = value; }
+        }
+
         public int ZipcodeTo
         {
             get { return _zipcodeTo; }
@@ -96,7 +126,8 @@ namespace RegionSyd._2ViewModel
                 && !AssignmentDescription.IsNullOrEmpty() && !PatientName.IsNullOrEmpty()
                 && AppointmentTime.IsBetween(new TimeOnly(00, 00), new TimeOnly(23, 59)) 
                 && AppointmentDate >= DateOnly.FromDateTime(DateTime.Now)
-                && ZipcodeFrom > 0 && ZipcodeTo > 0)
+                && !StreetNameFrom.IsNullOrEmpty() && StreetNumberFrom > 0 && ZipcodeFrom > 0 
+                && !StreetNameTo.IsNullOrEmpty() && StreetNumberTo > 0 && ZipcodeTo > 0)
             {
                 // TO-DO: Automatically assign DisponentIDCreator and RegionID
                 var assignment = new Assignment { 
@@ -106,7 +137,11 @@ namespace RegionSyd._2ViewModel
                     PatientName = this.PatientName,
                     AppointmentTime = this.AppointmentTime,
                     AppointmentDate = this.AppointmentDate,
+                    StreetNameFrom = this.StreetNameFrom,
+                    StreetNumberFrom = this.StreetNumberFrom,
                     ZipcodeFrom = this.ZipcodeFrom,
+                    StreetNameTo = this.StreetNameTo,
+                    StreetNumberTo = this.StreetNumberTo,
                     ZipcodeTo = this.ZipcodeTo
                 };
                 _sharedDataService.Assignments.Add(assignment);
