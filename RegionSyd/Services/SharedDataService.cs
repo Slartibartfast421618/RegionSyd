@@ -22,7 +22,7 @@ namespace RegionSyd.Services
             Assignments = new ObservableCollection<Assignment>();
 
             // Load database on launch
-            //LoadData();
+            LoadData();
 
             // Dummy data for now
             Assignments.Add(new Assignment
