@@ -14,57 +14,86 @@
                  Margin="90,10,0,0" TextWrapping="Wrap" TextAlignment="Left" 
                  HorizontalAlignment="Left" VerticalAlignment="Top" 
                  Height="25" Width="120" />
-        <Label Content="Type" Margin="10,100,0,0" HorizontalContentAlignment="Right" 
+        <Label Content="Type" Margin="10,60,0,0" HorizontalContentAlignment="Right" 
                HorizontalAlignment="Left" VerticalAlignment="Top"
                Height="25" Width="120"/>
         <TextBox Text="{Binding AssignmentType}" 
-                 Margin="130,100,0,0" TextWrapping="Wrap" TextAlignment="Left" 
+                 Margin="130,60,0,0" TextWrapping="Wrap" TextAlignment="Left" 
                  HorizontalAlignment="Left" VerticalAlignment="Top" 
                  Height="25" Width="210"/>
-        <Label Content="Patient" Margin="340,100,0,0" HorizontalContentAlignment="Right" 
+        <Label Content="Patient" Margin="340,60,0,0" HorizontalContentAlignment="Right" 
                HorizontalAlignment="Left" VerticalAlignment="Top"
                Height="25" Width="120"/>
         <TextBox Text="{Binding PatientName}" 
-                 Margin="460,100,0,0" TextWrapping="Wrap" 
+                 Margin="460,60,0,0" TextWrapping="Wrap" 
                  HorizontalAlignment="Left" VerticalAlignment="Top" 
                  Height="25" Width="210"/>
-        <Label Content="Beskrivelse" Margin="10,140,0,0" HorizontalContentAlignment="Right" 
+        <Label Content="Beskrivelse" Margin="10,100,0,0" HorizontalContentAlignment="Right" 
                HorizontalAlignment="Left" VerticalAlignment="Top"
                Height="25" Width="120"/>
         <TextBox Text="{Binding AssignmentDescription}" 
-                 Margin="130,140,0,0" TextWrapping="Wrap" 
+                 Margin="130,100,0,0" TextWrapping="Wrap" 
                  HorizontalAlignment="Left" VerticalAlignment="Top" 
                  Height="65" Width="540"/>
-        <Label Content="Tidspunkt" Margin="10,220,0,0" HorizontalContentAlignment="Right" 
+        <Label Content="Tidspunkt" Margin="10,180,0,0" HorizontalContentAlignment="Right" 
                HorizontalAlignment="Left" VerticalAlignment="Top"
                Height="25" Width="120"/>
         <TextBox Text="{Binding AppointmentTime}" 
-                 Margin="130,220,0,0" TextWrapping="Wrap" 
+                 Margin="130,180,0,0" TextWrapping="Wrap" 
                  HorizontalAlignment="Left" VerticalAlignment="Top" 
                  Height="25" Width="210"/>
-        <Label Content="Dato" Margin="340,220,0,0" HorizontalContentAlignment="Right" 
+        <Label Content="Dato" Margin="340,180,0,0" HorizontalContentAlignment="Right" 
                HorizontalAlignment="Left" VerticalAlignment="Top"
                Height="25" Width="120"/>
         <TextBox Text="{Binding AppointmentDate}" 
-                 Margin="460,220,0,0" TextWrapping="Wrap" 
+                 Margin="460,180,0,0" TextWrapping="Wrap" 
                  HorizontalAlignment="Left" VerticalAlignment="Top"     
                  Height="25" Width="210"/>
-        <Label Content="Fra adresse" Margin="10,260,0,0" HorizontalContentAlignment="Right" 
+        <Label Content="Fra vejnavn" Margin="10,220,0,0" HorizontalContentAlignment="Right" 
                HorizontalAlignment="Left" VerticalAlignment="Top"
                Height="25" Width="120"/>
-        <TextBox Text="{Binding ZipcodeFrom}" 
+        <TextBox Text="{Binding StreetNameFrom}" 
+                 Margin="130,220,0,0" TextWrapping="Wrap" 
+                 HorizontalAlignment="Left" VerticalAlignment="Top" 
+                 Height="25" Width="210"/>
+        <Label Content="Til vejnavn" Margin="340,220,0,0" HorizontalContentAlignment="Right" 
+               HorizontalAlignment="Left" VerticalAlignment="Top"
+               Height="25" Width="120"/>
+        <TextBox Text="{Binding StreetNameTo}" 
+                 Margin="460,220,0,0" TextWrapping="Wrap" 
+                 HorizontalAlignment="Left" VerticalAlignment="Top" 
+                 Height="25" Width="210"/>
+        <Label Content="Fra vejnummer" Margin="10,260,0,0" HorizontalContentAlignment="Right" 
+               HorizontalAlignment="Left" VerticalAlignment="Top"
+               Height="25" Width="120"/>
+        <TextBox Text="{Binding StreetNumberFrom}" 
                  Margin="130,260,0,0" TextWrapping="Wrap" 
                  HorizontalAlignment="Left" VerticalAlignment="Top" 
                  Height="25" Width="210"/>
-        <Label Content="Til adresse" Margin="340,260,0,0" HorizontalContentAlignment="Right" 
+        <Label Content="Til vejnummer" Margin="340,260,0,0" HorizontalContentAlignment="Right" 
                HorizontalAlignment="Left" VerticalAlignment="Top"
                Height="25" Width="120"/>
-        <TextBox Text="{Binding ZipcodeTo}" 
+        <TextBox Text="{Binding StreetNumberTo}" 
                  Margin="460,260,0,0" TextWrapping="Wrap" 
                  HorizontalAlignment="Left" VerticalAlignment="Top" 
                  Height="25" Width="210"/>
-        <Button Content="Gem" Command="{Binding AddCreateAssignmentCommand}" 
-                HorizontalAlignment="Left" VerticalAlignment="Top" Margin="350,330,100,0" 
+        <Label Content="Fra postnummer" Margin="10,300,0,0" HorizontalContentAlignment="Right" 
+               HorizontalAlignment="Left" VerticalAlignment="Top"
+               Height="25" Width="120"/>
+        <TextBox Text="{Binding ZipcodeFrom}" 
+                 Margin="130,300,0,0" TextWrapping="Wrap" 
+                 HorizontalAlignment="Left" VerticalAlignment="Top" 
+                 Height="25" Width="210"/>
+        <Label Content="Til postnummer" Margin="340,300,0,0" HorizontalContentAlignment="Right" 
+               HorizontalAlignment="Left" VerticalAlignment="Top"
+               Height="25" Width="120"/>
+        <TextBox Text="{Binding ZipcodeTo}" 
+                 Margin="460,300,0,0" TextWrapping="Wrap" 
+                 HorizontalAlignment="Left" VerticalAlignment="Top" 
+                 Height="25" Width="210"/>
+        <Button Content="Gem" Margin="350,350,100,0" 
+                Command="{Binding AddCreateAssignmentCommand}" 
+                HorizontalAlignment="Left" VerticalAlignment="Top" 
                 Height="40" Width="60"/>
     </Grid>
 </Page>
