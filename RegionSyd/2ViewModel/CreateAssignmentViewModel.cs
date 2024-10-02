@@ -79,7 +79,7 @@ namespace RegionSyd._2ViewModel
             set { _streetNumberFrom = value; }
         }
 
-        public int ZipcodeFrom
+        public int ZipCodeFrom
         {
             get { return _zipcodeFrom; }
             set { _zipcodeFrom = value; OnPropertyChanged(); }
@@ -97,7 +97,7 @@ namespace RegionSyd._2ViewModel
             set { _streetNumberTo = value; }
         }
 
-        public int ZipcodeTo
+        public int ZipCodeTo
         {
             get { return _zipcodeTo; }
             set { _zipcodeTo = value; OnPropertyChanged(); }
@@ -126,8 +126,8 @@ namespace RegionSyd._2ViewModel
                 && !AssignmentDescription.IsNullOrEmpty() && !PatientName.IsNullOrEmpty()
                 && AppointmentTime.IsBetween(new TimeOnly(00, 00), new TimeOnly(23, 59)) 
                 && AppointmentDate >= DateOnly.FromDateTime(DateTime.Now)
-                && !StreetNameFrom.IsNullOrEmpty() && StreetNumberFrom > 0 && ZipcodeFrom > 0 
-                && !StreetNameTo.IsNullOrEmpty() && StreetNumberTo > 0 && ZipcodeTo > 0)
+                && !StreetNameFrom.IsNullOrEmpty() && StreetNumberFrom > 0 && ZipCodeFrom > 0 
+                && !StreetNameTo.IsNullOrEmpty() && StreetNumberTo > 0 && ZipCodeTo > 0)
             {
                 // TO-DO: Automatically assign DisponentIDCreator and RegionID
                 var assignment = new Assignment { 
@@ -139,10 +139,10 @@ namespace RegionSyd._2ViewModel
                     AppointmentDate = this.AppointmentDate,
                     StreetNameFrom = this.StreetNameFrom,
                     StreetNumberFrom = this.StreetNumberFrom,
-                    ZipcodeFrom = this.ZipcodeFrom,
+                    ZipCodeFrom = this.ZipCodeFrom,
                     StreetNameTo = this.StreetNameTo,
                     StreetNumberTo = this.StreetNumberTo,
-                    ZipcodeTo = this.ZipcodeTo
+                    ZipCodeTo = this.ZipCodeTo
                 };
                 _sharedDataService.SaveAssignment(assignment);
 

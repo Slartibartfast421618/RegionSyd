@@ -80,14 +80,14 @@
         <Label Content="Fra postnummer" Margin="10,300,0,0" HorizontalContentAlignment="Right" 
                HorizontalAlignment="Left" VerticalAlignment="Top"
                Height="25" Width="120"/>
-        <TextBox Text="{Binding ZipcodeFrom}" 
+        <TextBox Text="{Binding ZipCodeFrom}" 
                  Margin="130,300,0,0" TextWrapping="Wrap" 
                  HorizontalAlignment="Left" VerticalAlignment="Top" 
                  Height="25" Width="210"/>
         <Label Content="Til postnummer" Margin="340,300,0,0" HorizontalContentAlignment="Right" 
                HorizontalAlignment="Left" VerticalAlignment="Top"
                Height="25" Width="120"/>
-        <TextBox Text="{Binding ZipcodeTo}" 
+        <TextBox Text="{Binding ZipCodeTo}" 
                  Margin="460,300,0,0" TextWrapping="Wrap" 
                  HorizontalAlignment="Left" VerticalAlignment="Top" 
                  Height="25" Width="210"/>

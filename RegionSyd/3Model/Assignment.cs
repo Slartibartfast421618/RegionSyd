@@ -69,7 +69,7 @@ namespace RegionSyd._3Model
 			set { _streetNumberFrom = value; }
 		}
 
-		public int ZipcodeFrom
+		public int ZipCodeFrom
 		{
 			get { return _zipcodeFrom; }
 			set { _zipcodeFrom = value; }
@@ -87,7 +87,7 @@ namespace RegionSyd._3Model
             set { _streetNumberTo = value; }
         }
 
-        public int ZipcodeTo
+        public int ZipCodeTo
 		{
 			get { return _zipcodeTo; }
 			set { _zipcodeTo = value; }
@@ -112,7 +112,9 @@ namespace RegionSyd._3Model
         }
         public Assignment(string rAssID, string assType, string assDes, 
 						string pName, TimeOnly appTime, DateOnly appDate, 
-						int addFrom, int addTo, string disDel, string disCre)
+						string streetNameFrom, int streetNumFrom, int zipFrom, 
+						string streetNameTo, int streetNumTo, int zipTo, 
+						string disDel, string disCre)
         {
 			_regionalAssignmentID = rAssID;
 			_assignmentType = assType;
@@ -120,26 +122,41 @@ namespace RegionSyd._3Model
 			_patientName = pName;
 			_appointmentTime = appTime;
 			_appointmentDate = appDate;
-			_zipcodeFrom = addFrom;
-			_zipcodeTo = addTo;
+			_streetNameFrom = streetNameFrom;
+			_streetNumberFrom = streetNumFrom;
+			_zipcodeFrom = zipFrom;
+			_streetNameTo = streetNameTo;
+			_streetNumberTo = streetNumTo;
+			_zipcodeTo = zipTo;
 			_disponentIDDelegator = disDel;
 			_disponentIDCreator= disCre;
         }
 
         public override string ToString()
-        {
-            return $"'{RegionalAssignmentID}', '{AssignmentType}', '{AssignmentDescription}', " +
-                $"'{PatientName}', '{AppointmentTime}', '{AppointmentDate}', " +
-                $"'{ZipcodeFrom}', '{ZipcodeTo}', '{DisponentIDDelegator}', " +
-                $"'{DisponentIDCreator}'";
+        {	// Reassign DisponentIDCreator to actual value once functionality is in place
+            if (DisponentIDDelegator != null)
+				return $"'{RegionalAssignmentID}', '{AssignmentType}', '{AssignmentDescription}', " +
+					$"'{PatientName}', '{AppointmentTime.ToString(@"hh\:mm")}', " +
+					$"'{AppointmentDate.ToString(@"yyyy\-MM\-dd")}', " +
+					$"'{StreetNameFrom}', '{StreetNumberFrom}', '{ZipCodeFrom}', " +
+					$"'{StreetNameTo}', '{StreetNumberTo}', '{ZipCodeTo}', " +
+					$"'{DisponentIDDelegator}', 'SY001'";
+			else 
+				return $"'{RegionalAssignmentID}', '{AssignmentType}', '{AssignmentDescription}', " +
+					$"'{PatientName}', '{AppointmentTime.ToString(@"hh\:mm")}', " +
+					$"'{AppointmentDate.ToString(@"yyyy\-MM\-dd")}', " +
+					$"'{StreetNameFrom}', '{StreetNumberFrom}', '{ZipCodeFrom}', " +
+					$"'{StreetNameTo}', '{StreetNumberTo}', '{ZipCodeTo}', " +
+					$"null, 'SY001'";
         }
         public string ToUpdate()
-        {
+        {	// Reassign DisponentIDCreator to actual value once functionality is in place
             return $"AssignmentType = '{AssignmentType}', AssignmentDescription = '{AssignmentDescription}', " +
                 $"PatientName = '{PatientName}', AppointmentTime = '{AppointmentTime}', " +
-				$"AppointmentDate = '{AppointmentDate}', ZipcodeFrom = '{ZipcodeFrom}', " +
-				$"ZipcodeTo = '{ZipcodeTo}', DisponentIDDelegator = '{DisponentIDDelegator}', " +
-                $"DisponentIDCreator = '{DisponentIDCreator}'";
+				$"AppointmentDate = '{AppointmentDate.ToString(@"yyyy\-MM\-dd")}', " +
+				$"StreetNameFrom = '{StreetNameFrom}', StreetNumberFrom = '{StreetNumberFrom}', ZipCodeFrom = '{ZipCodeFrom}', " +
+				$"StreetNameTo = '{StreetNameTo}', StreetNumberTo = '{StreetNumberTo}', ZipCodeTo = '{ZipCodeTo}', " +
+				$"DisponentIDDelegator = '{DisponentIDDelegator}', DisponentIDCreator = 'SY001'";
         }
     }
 }

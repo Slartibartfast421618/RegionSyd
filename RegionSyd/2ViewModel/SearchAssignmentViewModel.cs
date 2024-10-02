@@ -29,10 +29,10 @@ namespace RegionSyd._2ViewModel
 
         private string _searchStreetNameFrom;
         private int _searchStreetNumberFrom;
-        private int _searchZipcodeFrom;
+        private int _searchZipCodeFrom;
         private string _searchStreetNameTo;
         private int _searchStreetNumberTo;
-        private int _searchZipcodeTo;
+        private int _searchZipCodeTo;
 
         public string SearchStreetNameFrom
         {
@@ -46,10 +46,10 @@ namespace RegionSyd._2ViewModel
             set { _searchStreetNumberFrom = value; }
         }
 
-        public int SearchZipcodeFrom
+        public int SearchZipCodeFrom
         {
-            get { return _searchZipcodeFrom; }
-            set { _searchZipcodeFrom = value; OnPropertyChanged(); }
+            get { return _searchZipCodeFrom; }
+            set { _searchZipCodeFrom = value; OnPropertyChanged(); }
         }
 
         public string SearchStreetNameTo
@@ -64,10 +64,10 @@ namespace RegionSyd._2ViewModel
             set { _searchStreetNumberTo = value; }
         }
 
-        public int SearchZipcodeTo
+        public int SearchZipCodeTo
         {
-            get { return _searchZipcodeTo; }
-            set { _searchZipcodeTo = value; OnPropertyChanged(); }
+            get { return _searchZipCodeTo; }
+            set { _searchZipCodeTo = value; OnPropertyChanged(); }
         }
 
 
@@ -97,22 +97,22 @@ namespace RegionSyd._2ViewModel
             // Making sure strings aren't null to avoid issues, and a lot of checks
             SearchStreetNameFrom = string.Empty; 
             SearchStreetNumberFrom = 0; 
-            SearchZipcodeFrom = 0;
+            SearchZipCodeFrom = 0;
             SearchStreetNameFrom = string.Empty;
             SearchStreetNumberFrom = 0;
-            SearchZipcodeTo = 0;
+            SearchZipCodeTo = 0;
         }
 
         public void SearchThroughAssignments()
         {
             // Check if a filter is empty, if it is, don't use it. 
-            // Filters: SearchZipcodeFrom, SearchZipcodeTo, SearchAssignmentTime
+            // Filters: SearchZipCodeFrom, SearchZipCodeTo, SearchAssignmentTime
             // Take data from Assignments, overlay to FilteredAssignments
 
             var tempList = Assignments.ToList().FindAll(x
                 => (x.StreetNameFrom?.Contains(SearchStreetNameFrom) == true || SearchStreetNameFrom.IsNullOrEmpty())
-                && (x.ZipcodeFrom == SearchZipcodeFrom == true || SearchZipcodeFrom == 0)
-                && (x.ZipcodeTo == SearchZipcodeTo == true || SearchZipcodeTo == 0));
+                && (x.ZipCodeFrom == SearchZipCodeFrom == true || SearchZipCodeFrom == 0)
+                && (x.ZipCodeTo == SearchZipCodeTo == true || SearchZipCodeTo == 0));
             
             // Use .Clear() to retain databinding
             FilteredAssignments.Clear();

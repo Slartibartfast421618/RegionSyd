@@ -35,10 +35,10 @@ namespace RegionSyd.Services
                 AppointmentDate = new DateOnly(2004, 12, 31),
                 StreetNameFrom = "Vejvej",
                 StreetNumberFrom = 3,
-                ZipcodeFrom = 4376,
+                ZipCodeFrom = 4376,
                 StreetNameTo = "Vejvej",
                 StreetNumberTo = 4,
-                ZipcodeTo = 4376,
+                ZipCodeTo = 4376,
                 DisponentIDDelegator = "SY007",
                 DisponentIDCreator = "SY001"
             }); 
@@ -52,10 +52,10 @@ namespace RegionSyd.Services
                 AppointmentDate = new DateOnly(2004, 12, 31),
                 StreetNameFrom = "Vejvej",
                 StreetNumberFrom = 4,
-                ZipcodeFrom = 4376,
+                ZipCodeFrom = 4376,
                 StreetNameTo = "Vejvej",
                 StreetNumberTo = 9,
-                ZipcodeTo = 4376,
+                ZipCodeTo = 4376,
                 DisponentIDDelegator = "SY007",
                 DisponentIDCreator = "SY001"
             });
@@ -69,10 +69,10 @@ namespace RegionSyd.Services
                 AppointmentDate = new DateOnly(2004, 12, 31),
                 StreetNameFrom = "Vejvej",
                 StreetNumberFrom = 8,
-                ZipcodeFrom = 4376,
+                ZipCodeFrom = 4376,
                 StreetNameTo = "Gadegade",
                 StreetNumberTo = 25,
-                ZipcodeTo = 6734,
+                ZipCodeTo = 6734,
                 DisponentIDDelegator = "SY007",
                 DisponentIDCreator = "SY001"
             });
@@ -86,10 +86,10 @@ namespace RegionSyd.Services
                 AppointmentDate = new DateOnly(2004, 12, 31),
                 StreetNameFrom = "Gadevej",
                 StreetNumberFrom = 46,
-                ZipcodeFrom = 1020,
+                ZipCodeFrom = 1020,
                 StreetNameTo = "Vejgade",
                 StreetNumberTo = 64,
-                ZipcodeTo = 2010,
+                ZipCodeTo = 2010,
                 DisponentIDDelegator = "SY007",
                 DisponentIDCreator = "SY001"
             }); */

@@ -51,8 +51,12 @@ namespace RegionSyd.Repositories
                             PatientName = (string)reader["PatientName"],
                             AppointmentTime = TimeOnly.Parse(timeSpanToString((TimeSpan)reader["AppointmentTime"])),
                             AppointmentDate = DateOnly.Parse(dateTimeToString((DateTime)reader["AppointmentDate"])),
-                            ZipcodeFrom = (int)reader["ZipcodeFrom"],
-                            ZipcodeTo = (int)reader["ZipcodeTo"],
+                            StreetNameFrom = (string)reader["StreetNameFrom"],
+                            StreetNumberFrom = (int)reader["StreetNumberFrom"],
+                            ZipCodeFrom = (int)reader["ZipCodeFrom"],
+                            StreetNameTo = (string)reader["StreetNameTo"],
+                            StreetNumberTo = (int)reader["StreetNumberTo"],
+                            ZipCodeTo = (int)reader["ZipCodeTo"],
                             DisponentIDDelegator = disponentIDDelegator,
                             DisponentIDCreator = (string)reader["DisponentIDCreator"],
                         });
@@ -87,8 +91,8 @@ namespace RegionSyd.Repositories
                             PatientName = (string)reader["PatientName"],
                             AppointmentTime = (TimeOnly)reader["AppointmentTime"],
                             AppointmentDate = (DateOnly)reader["AppointmentDate"],
-                            ZipcodeFrom = (int)reader["ZipcodeFrom"],
-                            ZipcodeTo = (int)reader["ZipcodeTo"],
+                            ZipCodeFrom = (int)reader["ZipCodeFrom"],
+                            ZipCodeTo = (int)reader["ZipCodeTo"],
                             DisponentIDDelegator = (string)reader["DisponentIDDelegator"],
                             DisponentIDCreator = (string)reader["DisponentIDCreator"],
                         };
@@ -102,15 +106,16 @@ namespace RegionSyd.Repositories
         // add an assignment to the ASSIGNMENT table 
         public void Add(Assignment assignment)
         {
-            string query = "INSERT INTO ASSIGNMENT VALUES (@AssignmentToString)";
+            string query = $"INSERT INTO ASSIGNMENT VALUES ({assignment.ToString()})";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@AssignmentToString", assignment.ToString());
                 connection.Open();
                 command.ExecuteNonQuery();
             }
+
+
         }
 
         // Updates an assignment in the ASSIGNMENT table chosen by the RegionalAssignmentID
