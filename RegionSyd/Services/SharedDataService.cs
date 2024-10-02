@@ -25,7 +25,7 @@ namespace RegionSyd.Services
             LoadData();
 
             // Dummy data for now
-            Assignments.Add(new Assignment
+            /*Assignments.Add(new Assignment
             {
                 RegionalAssignmentID = "SY010203040506070809",
                 AssignmentType = "Akut",
@@ -92,7 +92,7 @@ namespace RegionSyd.Services
                 ZipcodeTo = 2010,
                 DisponentIDDelegator = "SY007",
                 DisponentIDCreator = "SY001"
-            });
+            }); */
         }
 
         private void LoadData()
@@ -110,7 +110,7 @@ namespace RegionSyd.Services
         // Assignment commands
         public void SaveAssignment(Assignment assignment)
         {
-            if (!Assignments.Contains(assignment))
+            if (!Assignments.Contains(assignment)) //  future, our code is going to assign a RegionalAssignemtID to the Assignment, and then check til RegionalAssignemtID on the list
             {
                 Assignments.Add(assignment);
                 _assignmentRepository.Add(assignment);
@@ -128,6 +128,7 @@ namespace RegionSyd.Services
             }
         }
 
+       
         // Next set of commands
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Data.SqlClient;
 using RegionSyd._3Model;
+using System.Windows.Markup;
 
 namespace RegionSyd.Repositories
 {
@@ -25,21 +26,34 @@ namespace RegionSyd.Repositories
                 SqlCommand command = new SqlCommand(query, connection);
                 connection.Open();
 
+
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
+                        Func<TimeSpan, string> timeSpanToString = ts => ts.ToString(@"hh\:mm\:ss");
+                        Func<DateTime, string> dateTimeToString = dt => dt.ToString(@"yyyy\-MM\-dd");
+                        string disponentIDDelegator;
+                        try //try catch to catch if a DisponentIDDelegator is NULL i databasen
+                        {
+                            disponentIDDelegator = (string)reader["DisponentIDDelegator"];
+                        }
+                        catch (Exception e) //burde være lavet med den fejlkode vi fik før 
+                        {
+                            disponentIDDelegator = "";     
+                        }
+
                         assignments.Add(new Assignment
                         {
                             RegionalAssignmentID = (string)reader["RegionalAssignmentID"],
                             AssignmentType = (string)reader["AssignmentType"],
                             AssignmentDescription = (string)reader["AssignmentDescription"],
                             PatientName = (string)reader["PatientName"],
-                            AppointmentTime = (TimeOnly)reader["AppointmentTime"],
-                            AppointmentDate = (DateOnly)reader["AppointmentDate"],
+                            AppointmentTime = TimeOnly.Parse(timeSpanToString((TimeSpan)reader["AppointmentTime"])),
+                            AppointmentDate = DateOnly.Parse(dateTimeToString((DateTime)reader["AppointmentDate"])),
                             ZipcodeFrom = (int)reader["ZipcodeFrom"],
                             ZipcodeTo = (int)reader["ZipcodeTo"],
-                            DisponentIDDelegator = (string)reader["DisponentIDDelegator"],
+                            DisponentIDDelegator = disponentIDDelegator,
                             DisponentIDCreator = (string)reader["DisponentIDCreator"],
                         });
                     }

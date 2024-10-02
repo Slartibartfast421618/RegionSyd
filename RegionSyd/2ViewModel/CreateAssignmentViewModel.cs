@@ -144,7 +144,8 @@ namespace RegionSyd._2ViewModel
                     StreetNumberTo = this.StreetNumberTo,
                     ZipcodeTo = this.ZipcodeTo
                 };
-                _sharedDataService.Assignments.Add(assignment);
+                _sharedDataService.SaveAssignment(assignment);
+
             }
         }
     }
