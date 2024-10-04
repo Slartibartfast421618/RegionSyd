@@ -7,11 +7,6 @@
         mc:Ignorable="d"
         Title="SearchAssignmentView" Height="600" Width="880">
     <Grid>
-        <Button Command="{Binding SearchThroughAssignmentsCommand}" 
-                Content="Søg" Margin="300,80,0,0" FontSize="16" FontWeight="Bold" 
-                HorizontalAlignment="Left" VerticalAlignment="Top" 
-                Height="30" Width="80"/>
-
         <Label Content="Fra vejnavn" Margin="10,10,0,0" HorizontalContentAlignment="Right" 
                HorizontalAlignment="Left" VerticalAlignment="Top" 
                Height="25" Width="100"/>
@@ -19,14 +14,6 @@
                  Margin="110,10,0,0" TextWrapping="Wrap" 
                  HorizontalAlignment="Left" VerticalAlignment="Top" 
                  Height="25" Width="225"/>
-        <Label Content="Til vejnavn" Margin="345,10,0,0" HorizontalContentAlignment="Right" 
-               HorizontalAlignment="Left" VerticalAlignment="Top" 
-               Height="25" Width="100"/>
-        <TextBox Text="{Binding SearchStreetnameTo}" 
-                 Margin="445,10,0,0" TextWrapping="Wrap" 
-                 HorizontalAlignment="Left" VerticalAlignment="Top" 
-                 Height="25" Width="225"/>
-
         <Label Content="Fra vejnummer" Margin="10,45,0,0" HorizontalContentAlignment="Right" 
                HorizontalAlignment="Left" VerticalAlignment="Top" 
                Height="25" Width="100"/>
@@ -34,19 +21,26 @@
                  Margin="110,45,0,0" TextWrapping="Wrap" 
                  HorizontalAlignment="Left" VerticalAlignment="Top" 
                  Height="25" Width="60"/>
-        <Label Content="Til vejnummer" Margin="345,45,0,0" HorizontalContentAlignment="Right" 
-               HorizontalAlignment="Left" VerticalAlignment="Top" 
-               Height="25" Width="100"/>
-        <TextBox Text="{Binding SearchStreetNumberTo}" 
-                 Margin="445,45,0,0" TextWrapping="Wrap" 
-                 HorizontalAlignment="Left" VerticalAlignment="Top" 
-                 Height="25" Width="60"/>
-
         <Label Content="Fra postnummer" Margin="175,45,0,0" HorizontalContentAlignment="Right" 
                HorizontalAlignment="Left" VerticalAlignment="Top" 
                Height="25" Width="100"/>
         <TextBox Text="{Binding SearchZipCodeFrom}" 
                  Margin="275,45,0,0" TextWrapping="Wrap" 
+                 HorizontalAlignment="Left" VerticalAlignment="Top" 
+                 Height="25" Width="60"/>
+
+        <Label Content="Til vejnavn" Margin="345,10,0,0" HorizontalContentAlignment="Right" 
+               HorizontalAlignment="Left" VerticalAlignment="Top" 
+               Height="25" Width="100"/>
+        <TextBox Text="{Binding SearchStreetnameTo}" 
+                 Margin="445,10,0,0" TextWrapping="Wrap" 
+                 HorizontalAlignment="Left" VerticalAlignment="Top" 
+                 Height="25" Width="225"/>
+        <Label Content="Til vejnummer" Margin="345,45,0,0" HorizontalContentAlignment="Right" 
+               HorizontalAlignment="Left" VerticalAlignment="Top" 
+               Height="25" Width="100"/>
+        <TextBox Text="{Binding SearchStreetNumberTo}" 
+                 Margin="445,45,0,0" TextWrapping="Wrap" 
                  HorizontalAlignment="Left" VerticalAlignment="Top" 
                  Height="25" Width="60"/>
         <Label Content="Til postnummer" Margin="510,45,0,0" HorizontalContentAlignment="Right" 
@@ -56,6 +50,11 @@
                  Margin="610,45,0,0" TextWrapping="Wrap" 
                  HorizontalAlignment="Left" VerticalAlignment="Top" 
                  Height="25" Width="60"/>
+
+        <Button Command="{Binding SearchThroughAssignmentsCommand}" 
+                Content="Søg" Margin="300,80,0,0" FontSize="16" FontWeight="Bold" 
+                HorizontalAlignment="Left" VerticalAlignment="Top" 
+                Height="30" Width="80"/>
 
         <DataGrid ItemsSource="{Binding FilteredAssignments}" SelectedItem="{Binding SelectedAssignment}" 
           CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" 

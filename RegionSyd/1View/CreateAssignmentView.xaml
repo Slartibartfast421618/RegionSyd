@@ -56,13 +56,6 @@
                  Margin="130,220,0,0" TextWrapping="Wrap" 
                  HorizontalAlignment="Left" VerticalAlignment="Top" 
                  Height="25" Width="210"/>
-        <Label Content="Til vejnavn" Margin="340,220,0,0" HorizontalContentAlignment="Right" 
-               HorizontalAlignment="Left" VerticalAlignment="Top"
-               Height="25" Width="120"/>
-        <TextBox Text="{Binding StreetNameTo}" 
-                 Margin="460,220,0,0" TextWrapping="Wrap" 
-                 HorizontalAlignment="Left" VerticalAlignment="Top" 
-                 Height="25" Width="210"/>
         <Label Content="Fra vejnummer" Margin="10,260,0,0" HorizontalContentAlignment="Right" 
                HorizontalAlignment="Left" VerticalAlignment="Top"
                Height="25" Width="120"/>
@@ -70,18 +63,25 @@
                  Margin="130,260,0,0" TextWrapping="Wrap" 
                  HorizontalAlignment="Left" VerticalAlignment="Top" 
                  Height="25" Width="210"/>
-        <Label Content="Til vejnummer" Margin="340,260,0,0" HorizontalContentAlignment="Right" 
-               HorizontalAlignment="Left" VerticalAlignment="Top"
-               Height="25" Width="120"/>
-        <TextBox Text="{Binding StreetNumberTo}" 
-                 Margin="460,260,0,0" TextWrapping="Wrap" 
-                 HorizontalAlignment="Left" VerticalAlignment="Top" 
-                 Height="25" Width="210"/>
         <Label Content="Fra postnummer" Margin="10,300,0,0" HorizontalContentAlignment="Right" 
                HorizontalAlignment="Left" VerticalAlignment="Top"
                Height="25" Width="120"/>
         <TextBox Text="{Binding ZipCodeFrom}" 
                  Margin="130,300,0,0" TextWrapping="Wrap" 
+                 HorizontalAlignment="Left" VerticalAlignment="Top" 
+                 Height="25" Width="210"/>
+        <Label Content="Til vejnavn" Margin="340,220,0,0" HorizontalContentAlignment="Right" 
+               HorizontalAlignment="Left" VerticalAlignment="Top"
+               Height="25" Width="120"/>
+        <TextBox Text="{Binding StreetNameTo}" 
+                 Margin="460,220,0,0" TextWrapping="Wrap" 
+                 HorizontalAlignment="Left" VerticalAlignment="Top" 
+                 Height="25" Width="210"/>
+        <Label Content="Til vejnummer" Margin="340,260,0,0" HorizontalContentAlignment="Right" 
+               HorizontalAlignment="Left" VerticalAlignment="Top"
+               Height="25" Width="120"/>
+        <TextBox Text="{Binding StreetNumberTo}" 
+                 Margin="460,260,0,0" TextWrapping="Wrap" 
                  HorizontalAlignment="Left" VerticalAlignment="Top" 
                  Height="25" Width="210"/>
         <Label Content="Til postnummer" Margin="340,300,0,0" HorizontalContentAlignment="Right" 
