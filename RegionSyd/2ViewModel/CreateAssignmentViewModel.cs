@@ -29,6 +29,8 @@ namespace RegionSyd._2ViewModel
         private int _streetNumberTo;
         private int _zipcodeTo;
 
+        private string _lblSavedOrNot;
+
         // Properties
         // TO-DO: Form RegionAssignmentID from DisponentIDCreator.RegionID and assignments.Count()
         public string RegionalAssignmentID
@@ -70,13 +72,13 @@ namespace RegionSyd._2ViewModel
         public string StreetNameFrom
         {
             get { return _streetNameFrom; }
-            set { _streetNameFrom = value; }
+            set { _streetNameFrom = value; OnPropertyChanged(); }
         }
 
         public int StreetNumberFrom
         {
             get { return _streetNumberFrom; }
-            set { _streetNumberFrom = value; }
+            set { _streetNumberFrom = value; OnPropertyChanged(); }
         }
 
         public int ZipCodeFrom
@@ -88,13 +90,13 @@ namespace RegionSyd._2ViewModel
         public string StreetNameTo
         {
             get { return _streetNameTo; }
-            set { _streetNameTo = value; }
+            set { _streetNameTo = value; OnPropertyChanged(); }
         }
 
         public int StreetNumberTo
         {
             get { return _streetNumberTo; }
-            set { _streetNumberTo = value; }
+            set { _streetNumberTo = value; OnPropertyChanged(); }
         }
 
         public int ZipCodeTo
@@ -102,6 +104,13 @@ namespace RegionSyd._2ViewModel
             get { return _zipcodeTo; }
             set { _zipcodeTo = value; OnPropertyChanged(); }
         }
+
+        public string LblSavedOrNot
+        {
+            get { return _lblSavedOrNot; }
+            set { _lblSavedOrNot = value; OnPropertyChanged(); }
+        }
+
 
         // Commands for binding
         public ICommand AddCreateAssignmentCommand { get; }
@@ -122,16 +131,17 @@ namespace RegionSyd._2ViewModel
             // Check if everything seems reasonably valid
             // TO-DO: Missing check for RegionalAssignmentID being unique
             // TO-DO: Figure out better logic for checking AddressIDs
-            if (!RegionalAssignmentID.IsNullOrEmpty() && !AssignmentType.IsNullOrEmpty() 
+            if (!RegionalAssignmentID.IsNullOrEmpty() && !AssignmentType.IsNullOrEmpty()
                 && !AssignmentDescription.IsNullOrEmpty() && !PatientName.IsNullOrEmpty()
-                && AppointmentTime.IsBetween(new TimeOnly(00, 00), new TimeOnly(23, 59)) 
+                && AppointmentTime.IsBetween(new TimeOnly(00, 00), new TimeOnly(23, 59))
                 && AppointmentDate >= DateOnly.FromDateTime(DateTime.Now)
-                && !StreetNameFrom.IsNullOrEmpty() && StreetNumberFrom > 0 && ZipCodeFrom > 0 
+                && !StreetNameFrom.IsNullOrEmpty() && StreetNumberFrom > 0 && ZipCodeFrom > 0
                 && !StreetNameTo.IsNullOrEmpty() && StreetNumberTo > 0 && ZipCodeTo > 0)
             {
                 // TO-DO: Automatically assign DisponentIDCreator and RegionID
-                var assignment = new Assignment { 
-                    RegionalAssignmentID = this.RegionalAssignmentID, 
+                var assignment = new Assignment
+                {
+                    RegionalAssignmentID = this.RegionalAssignmentID,
                     AssignmentType = this.AssignmentType,
                     AssignmentDescription = this.AssignmentDescription,
                     PatientName = this.PatientName,
@@ -146,6 +156,13 @@ namespace RegionSyd._2ViewModel
                 };
                 _sharedDataService.SaveAssignment(assignment);
 
+                // Lable return value true
+                LblSavedOrNot = "Opgavent gemt i databasen.";
+            }
+            else
+            {
+                // label return value false
+                LblSavedOrNot = "FEEEEEEJL, ikke gemt i databasen.";
             }
         }
     }
