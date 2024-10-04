@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RegionSyd._1View"
         mc:Ignorable="d"
-        Title="SearchAssignmentView" Height="420" Width="680">
+        Title="SearchAssignmentView" Height="600" Width="880">
     <Grid>
         <Button Command="{Binding SearchThroughAssignmentsCommand}" 
                 Content="Søg" Margin="300,80,0,0" FontSize="16" FontWeight="Bold" 
@@ -58,17 +58,48 @@
                  Height="25" Width="60"/>
 
         <DataGrid ItemsSource="{Binding FilteredAssignments}" SelectedItem="{Binding SelectedAssignment}" 
-                  CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" 
-                  Margin="10,120,10,10"
-                  AutoGenerateColumns="False">
+          CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" 
+          Margin="10,120,10,10"
+          AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="OpgaveID" Binding="{Binding RegionalAssignmentID}" Width="70"/>
-                <DataGridTextColumn Header="Fra" Binding="{Binding ZipCodeFrom}" Width="120"/>
-                <DataGridTextColumn Header="Til" Binding="{Binding ZipCodeTo}" Width="120"/>
-                <DataGridTextColumn Header="Tid" Binding="{Binding AppointmentTime}" Width="60"/>
+                <DataGridTemplateColumn Header="Fra" Width="120">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat=" {0} {1}, {2}">
+                                        <Binding Path="StreetNameFrom" />
+                                        <Binding Path="StreetNumberFrom" />
+                                        <Binding Path="ZipCodeFrom" />
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Til" Width="120">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat=" {0} {1}, {2}">
+                                        <Binding Path="StreetNameTo" />
+                                        <Binding Path="StreetNumberTo" />
+                                        <Binding Path="ZipCodeTo" />
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Tid" Binding="{Binding AppointmentTime , StringFormat='HH:mm'}" Width="60"/>
+                <DataGridTextColumn Header="Dato" Binding="{Binding AppointmentDate}" Width="60"/>
                 <DataGridTextColumn Header="Opg.type" Binding="{Binding AssignmentType}" Width="60"/>
                 <DataGridTextColumn Header="Opgave beskrivelse" Binding="{Binding AssignmentDescription}" Width="200"/>
             </DataGrid.Columns>
         </DataGrid>
+
+
     </Grid>
 </Page>

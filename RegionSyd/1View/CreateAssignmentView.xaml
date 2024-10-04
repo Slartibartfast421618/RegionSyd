@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RegionSyd._1View"
         mc:Ignorable="d"
-        Title="CreateAssignmentView" Height="420" Width="680">
+        Title="CreateAssignmentView" Height="600" Width="880">
     <Grid Height="420" Width="680">
         <Label Content="Opgave ID" Margin="10,10,0,0" HorizontalContentAlignment="Right" 
                HorizontalAlignment="Left" VerticalAlignment="Top"

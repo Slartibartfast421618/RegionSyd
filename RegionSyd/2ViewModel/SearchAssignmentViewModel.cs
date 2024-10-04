@@ -119,5 +119,7 @@ namespace RegionSyd._2ViewModel
             foreach (Assignment assignment in tempList) 
                 FilteredAssignments.Add(assignment);
         }
+
+       
     }
 }
