@@ -4,6 +4,7 @@ namespace RegionSyd.Utilities
 {
     public class RelayCommandWithParams : ICommand
     {
+        // CLASS NOTE: Using two RelayCommands, one for simple, one for added parameters
         private Action<object> _execute;
         private Func<object, bool> _canExecute;
 

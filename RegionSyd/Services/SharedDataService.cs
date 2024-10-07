@@ -110,15 +110,18 @@ namespace RegionSyd.Services
         // Assignment commands
         public void SaveAssignment(Assignment assignment)
         {
-            if (!Assignments.Contains(assignment)) //  future, our code is going to assign a RegionalAssignemtID to the Assignment, and then check til RegionalAssignemtID on the list
+            // Check RegionalAssignmentID instead once properly implemented
+            if (!Assignments.Contains(assignment)) 
             {
                 Assignments.Add(assignment);
                 _assignmentRepository.Add(assignment);
             }
             //else
+                // Will be used for updating later, when above comment is fixed
             //    _assignmentRepository.Update(assignment);
         }
 
+        //  Not implemented, administration work
         public void DeleteAssignemnt(Assignment assignment)
         {
             if (Assignments.Contains(assignment))
@@ -127,8 +130,5 @@ namespace RegionSyd.Services
                 _assignmentRepository.Remove(assignment);
             }
         }
-
-       
-        // Next set of commands
     }
 }

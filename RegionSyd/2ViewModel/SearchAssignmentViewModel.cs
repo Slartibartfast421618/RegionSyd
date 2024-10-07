@@ -37,13 +37,13 @@ namespace RegionSyd._2ViewModel
         public string SearchStreetNameFrom
         {
             get { return _searchStreetNameFrom; }
-            set { _searchStreetNameFrom = value; }
+            set { _searchStreetNameFrom = value; OnPropertyChanged(); }
         }
 
         public int SearchStreetNumberFrom
         {
             get { return _searchStreetNumberFrom; }
-            set { _searchStreetNumberFrom = value; }
+            set { _searchStreetNumberFrom = value; OnPropertyChanged(); }
         }
 
         public int SearchZipCodeFrom
@@ -55,13 +55,13 @@ namespace RegionSyd._2ViewModel
         public string SearchStreetNameTo
         {
             get { return _searchStreetNameTo; }
-            set { _searchStreetNameTo = value; }
+            set { _searchStreetNameTo = value; OnPropertyChanged(); }
         }
 
         public int SearchStreetNumberTo
         {
             get { return _searchStreetNumberTo; }
-            set { _searchStreetNumberTo = value; }
+            set { _searchStreetNumberTo = value; OnPropertyChanged(); }
         }
 
         public int SearchZipCodeTo

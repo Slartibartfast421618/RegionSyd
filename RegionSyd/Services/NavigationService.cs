@@ -15,6 +15,7 @@ namespace RegionSyd.Services
         }
 
         // Pages to be opened
+        // Remember to propagate data as necessary!
         public void OpenCreateAssignmentView()
         {
             _mainWindowView.NavigateTo(new CreateAssignmentView(_sharedDataService));
@@ -24,20 +25,5 @@ namespace RegionSyd.Services
         {
             _mainWindowView.NavigateTo(new SearchAssignmentView(_sharedDataService));
         }
-
-        // Windows to be opened
-        // Remember to propagate data as necessary!
-        //public void OpenCreateAssignmentView()
-        //{
-        //    var createAssignmentView = new CreateAssignmentView(_sharedDataService);
-        //    createAssignmentView.Show();
-            
-        //}
-
-        //public void OpenSearchAssignmentView()
-        //{
-        //    var searchAssignmentView = new SearchAssignmentView(_sharedDataService);
-        //    searchAssignmentView.Show();
-        //}
     }
 }
