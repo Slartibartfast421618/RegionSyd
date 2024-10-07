@@ -111,7 +111,10 @@ namespace RegionSyd._2ViewModel
 
             var tempList = Assignments.ToList().FindAll(x
                 => (x.StreetNameFrom?.Contains(SearchStreetNameFrom) == true || SearchStreetNameFrom.IsNullOrEmpty())
+                && (x.StreetNumberFrom == SearchStreetNumberFrom == true || SearchStreetNumberFrom == 0)
                 && (x.ZipCodeFrom == SearchZipCodeFrom == true || SearchZipCodeFrom == 0)
+                && (x.StreetNameTo?.Contains(SearchStreetNameTo) == true || SearchStreetNameTo.IsNullOrEmpty())
+                && (x.StreetNumberTo == SearchStreetNumberTo == true || SearchStreetNumberTo == 0)
                 && (x.ZipCodeTo == SearchZipCodeTo == true || SearchZipCodeTo == 0));
             
             // Use .Clear() to retain databinding
