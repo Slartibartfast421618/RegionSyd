@@ -16,6 +16,5 @@ namespace RegionSyd._1View
             // Set DataContext to the SharedDataService from NavigationService
             DataContext = new SearchAssignmentViewModel(sharedDataService);
         }
-
     }
 }

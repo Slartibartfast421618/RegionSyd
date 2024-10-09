@@ -98,8 +98,8 @@ namespace RegionSyd._2ViewModel
             SearchStreetNameFrom = string.Empty; 
             SearchStreetNumberFrom = 0; 
             SearchZipCodeFrom = 0;
-            SearchStreetNameFrom = string.Empty;
-            SearchStreetNumberFrom = 0;
+            SearchStreetNameTo = string.Empty;
+            SearchStreetNumberTo = 0;
             SearchZipCodeTo = 0;
         }
 
@@ -121,6 +121,8 @@ namespace RegionSyd._2ViewModel
             FilteredAssignments.Clear();
             foreach (Assignment assignment in tempList) 
                 FilteredAssignments.Add(assignment);
+
+            // ICollectionView
         }
 
        
