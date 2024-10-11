@@ -1,7 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Data.SqlClient;
 using RegionSyd._3Model;
-using System.Windows.Markup;
 
 namespace RegionSyd.Repositories
 {
